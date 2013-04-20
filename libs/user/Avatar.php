@@ -31,8 +31,7 @@ class Avatar {
 
 		if (!$img || $img == '') return $avatar;
 
-		$avatar = preg_replace('/src=("|\').*?("|\')/i', 'src=\'' . $img . '\'', $avatar);
-		return $avatar;
+		return '<img src="' . $img . '" class="avatar avatar-wordpress-social-login avatar-' . $size . ' photo" height="' . $size . '" width="' . $size . '" />';
 	}
 
 }

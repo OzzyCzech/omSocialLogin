@@ -86,7 +86,8 @@ class Auth {
 
 		$user = new User($response);
 		if ($user->login()) {
-			wp_redirect(home_url('/'));
+			$referer = ($_SERVER["HTTP_REFERER"]) ? : home_url('/');
+			wp_redirect($referer);
 			die();
 		}
 	}
