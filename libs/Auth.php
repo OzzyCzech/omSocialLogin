@@ -86,9 +86,13 @@ class Auth {
 
 		$user = new User($response);
 		if ($user->login()) {
-			$referer = ($_SERVER["HTTP_REFERER"]) ? : home_url('/');
-			wp_redirect($referer);
-			die();
+			$referer = wp_get_referer();
+			if ($referer && !strpos($referer, 'wp-login')) {
+				wp_safe_redirect(wp_get_referer() . '#respond'); // comments login
+			} else {
+				wp_safe_redirect(get_home_url() . '#');
+			}
+			exit();
 		}
 	}
 }
