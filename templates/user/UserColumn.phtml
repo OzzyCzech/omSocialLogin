@@ -1,0 +1,11 @@
+<div>
+	<? if ($creator = \omSocialLogin\UserMeta::getCreatorProviderName($user_id)) { ?>
+		<img src="<?= \omSocialLogin\omSocialLogin::uri('/img/' . strtolower($creator) . '.png'); ?>"
+		     alt="<?= $creator ?>"/>
+	<? } else { ?>
+		<? foreach (\omSocialLogin\UserMeta::getConnectedProviders($user_id) as $name => $meta) { ?>
+			<img src="<?= \omSocialLogin\omSocialLogin::uri('/img/' . strtolower($name) . '.png'); ?>"
+			     alt="<?= $creator ?>"/>
+		<? } ?>
+	<? } ?>
+</div>¨

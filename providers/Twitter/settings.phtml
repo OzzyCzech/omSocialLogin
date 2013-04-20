@@ -1,0 +1,39 @@
+<? /** @var \omSocialLogin\providers\Twitter $this */ ?>
+<table class="form-table">
+	<tr>
+		<td colspan="2"><h3><img src="<?= \omSocialLogin\omSocialLogin::uri('/img/' . strtolower($this->getName()) . '.png') ?>" alt=""/> Twitter</h3></td>
+	</tr>
+
+	<tr valign="top">
+		<th scope="row"><?php _e('Enable', SL) ?></th>
+		<td>
+			<label for="twitter_enable">
+				<input name="twitter_enable" type="checkbox" id="twitter_enable"
+				       value="1" <?php checked(true, $this->options->enable); ?> />
+				<?php _e('enable', SL) ?></label>
+		</td>
+	</tr>
+
+	<tr valign="top">
+		<th scope="row">
+			<label for="twitter_strategy_key"><?php _e('Key', SL) ?></label>
+		</th>
+		<td>
+			<input name="twitter_strategy[key]" type="text" id="twitter_strategy_key"
+			       value="<?= esc_attr($this->options->getStrategy('key')) ?>"
+			       class="large-text"/>
+		</td>
+	</tr>
+
+	<tr valign="top">
+		<th scope="row">
+			<label for="twitter_strategy_secret"><?php _e('Secret', SL) ?></label>
+		</th>
+		<td>
+			<input name="twitter_strategy[secret]" type="text" id="twitter_strategy_secret"
+			       value="<?= esc_attr($this->options->getStrategy('secret')) ?>"
+			       class="large-text"/>
+			<p class="description"><? _e('Register here:', SL)?> <a href=" https://dev.twitter.com/apps" target="_blank">https://dev.twitter.com/apps</a></p>
+		</td>
+	</tr>
+</table>

@@ -1,0 +1,26 @@
+{
+  "name": "om/wplugins",
+  "type": "tool",
+  "description": "Wordpress plugin commons",
+  "minimum-stability": "stable",
+  "license": ["BSD-3-Clause"],
+  "authors": [
+    {
+      "name": "Roman Ožana",
+      "email": "ozana@omdesign.cz",
+      "homepage": "http://www.omdesign.cz"
+    }
+  ],
+
+  "autoload": {
+    "classmap": ["src"]
+  },
+
+  "require": {
+    "php": ">=5.3.0"
+  },
+
+  "require-dev": {
+    "nette/tester": "@dev"
+  }
+}

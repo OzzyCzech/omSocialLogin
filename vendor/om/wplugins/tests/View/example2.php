@@ -1,0 +1,1 @@
+<a href="<?php echo 'example2'; ?>">link</a>

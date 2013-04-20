@@ -1,0 +1,11 @@
+<div class="omLoginButtons">
+	<? foreach ($providers as $name => $provider) {
+		/** @var \omSocialLogin\providers\IProvider $provider */
+		if (!$provider->isEnable()) continue;
+		$namel = strtolower($name) ?>
+		<a href="/auth/<?= $namel ?>">
+			<img src="<?= \omSocialLogin\omSocialLogin::uri('/img/' . $namel . '.png') ?>" alt="<?= $namel ?>"/>
+			<span class="screen-reader-text"><?= $name ?></span>
+		</a>
+	<? } ?>
+</div>

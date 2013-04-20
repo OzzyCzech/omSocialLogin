@@ -1,0 +1,45 @@
+<? /** @var \omSocialLogin\providers\Facebook $this */ ?>
+<table class="form-table">
+	<tr>
+		<td colspan="2">
+			<h3><img src="<?= \omSocialLogin\omSocialLogin::uri('/img/' . strtolower($this->getName()) . '.png') ?>" alt=""/>
+				Facebook</h3>
+		</td>
+	</tr>
+
+	<tr valign="top">
+		<th scope="row"><?php _e('Enable', SL) ?></th>
+		<td>
+			<label for="facebook_enable">
+				<input name="facebook_enable" type="checkbox" id="facebook_enable"
+				       value="1" <?php checked(true, $this->options->enable); ?> />
+				<?php _e('enable', SL) ?></label>
+		</td>
+	</tr>
+
+	<tr valign="top">
+		<th scope="row">
+			<label for="facebook_strategy_app_id"><?php _e('App ID', SL) ?></label>
+		</th>
+		<td>
+			<input name="facebook_strategy[app_id]" type="text" id="facebook_strategy_app_id"
+			       value="<?= esc_attr($this->options->getStrategy('app_id')) ?>"
+			       class="large-text"/>
+		</td>
+	</tr>
+
+	<tr valign="top">
+		<th scope="row">
+			<label for="facebook_strategy_app_secret"><?php _e('App Secret', SL) ?></label>
+		</th>
+		<td>
+			<input name="facebook_strategy[app_secret]" type="text" id="facebook_strategy_app_secret"
+			       value="<?= esc_attr($this->options->getStrategy('app_secret')) ?>"
+			       class="large-text"/>
+
+			<p class="description"><? _e('Register here:', SL)?> <a href="https://developers.facebook.com/apps/" target="_blank">https://developers.facebook.com/apps/</a>
+			</p>
+		</td>
+	</tr>
+
+</table>

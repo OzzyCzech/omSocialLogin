@@ -1,0 +1,48 @@
+<?php
+/** @var \omSocialLogin\omSocialLogin $this */
+if (!current_user_can('manage_options'))
+	wp_die(__('You do not have sufficient permissions to manage options for this site.', SB));
+?>
+
+<div class="wrap">
+	<div id="icon-options-general" class="icon32"><br></div>
+	<h2><?php _e('Social login settings', SL) ?></h2>
+
+	<table class="form-table">
+		<tr>
+			<td colspan="2"><h3><?= __('Common settings', SL)?></h3></td>
+		</tr>
+
+		<tr>
+			<th><?= __('Callback URL', SL)?></th>
+			<td>
+				<input type="text" value="<?= home_url('/auth/process') ?>" class="large-text" disabled="disabled"/>
+
+				<p class="description"><?_e('Some services (e.g. Twitter,Google) require callback URL.', SL)?></p>
+			</td>
+		</tr>
+	</table>
+
+	<style type="text/css">
+		h3 {
+			border-bottom: 1px solid #ddd;
+			padding-bottom: .2em;
+
+		}
+		h3 img {
+			vertical-align: middle;
+			display: block;
+			margin-right: .6em;
+			float: left;
+		}
+	</style>
+
+	<form action="<?php echo $action ?>" method="post">
+
+		<? $this->providers->getOptionsForm(); ?>
+
+		<? submit_button(); ?>
+
+	</form>
+
+</div>
