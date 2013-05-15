@@ -24,4 +24,13 @@ class Facebook extends BaseProvider {
 		$this->options->setByArray($_POST, 'facebook_%s');
 		$this->options->saveOptions();
 	}
+
+	/**
+	 * Return hexa value of brand color
+	 *
+	 * @return mixed
+	 */
+	public function getColor() {
+		return '#3b5998';
+	}
 }

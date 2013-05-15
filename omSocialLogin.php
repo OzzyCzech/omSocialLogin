@@ -35,7 +35,7 @@ class omSocialLogin {
 	}
 
 	public function init() {
-		// TODO load_plugin_textdomain(SL, false, basename(__DIR__) . '/languages/');
+		load_plugin_textdomain(SL, false, basename(omSocialLogin::dir()) . '/languages/');
 	}
 
 	/**
@@ -108,9 +108,12 @@ $providers = new Container('Facebook', 'Twitter', 'Google');
 
 new Settings($providers); // plugin settings
 new Frontend($providers); // frontend functions
-new Auth($providers); //
-new UserColumns($providers);
+new Auth($providers); // autentication
+new UserColumns($providers); // social column in user List
+new ProfileConnection($providers); // connection with... on user profile
+
 new Query(); //
 new Avatar();
+
 
 // ---------------------------------------------------------------------------------------------------------------------

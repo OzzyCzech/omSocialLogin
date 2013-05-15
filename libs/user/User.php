@@ -193,6 +193,7 @@ class User {
 	 * Auto-login Wordpress user
 	 *
 	 * @param \WP_User $user
+	 * @return bool
 	 */
 	private function loginUser(\WP_User $user) {
 		wp_set_current_user($user->ID, $user->user_login);

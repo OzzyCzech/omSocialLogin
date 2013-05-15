@@ -1,0 +1,46 @@
+<h3><? _e('Connect your account', SL) ?></h3>
+
+<style type="text/css">
+
+	.socialConnect .connected {
+		display: inline-block;
+		line-height: 42px;
+		height: 42px;
+		border: 1px solid #ddd;
+	}
+
+	.socialConnect .button {
+		height: auto;
+		line-height: 42px;
+	}
+
+	.socialConnect img {
+		vertical-align: middle;
+	}
+</style>
+
+<div class="socialConnect">
+	<? foreach ($this->providers as $name => $provider) {
+		/** @var \omSocialLogin\providers\IProvider $provider */
+		if (!$provider->isEnable()) continue; // skip disabled providers
+		$namel = strtolower($name)
+		?>
+
+		<? if (isset($connected[$name])) { ?>
+			<? dump(\omSocialLogin\UserMeta::getInfo($user->ID, $name))?>
+			<span class="connected">
+
+			<img src="<?= \omSocialLogin\omSocialLogin::uri('/img/' . $namel . '.png') ?>"
+			     alt="<?= $namel ?>"/>
+				</span>
+		<? } else { ?>
+			<a href="/auth/<?= $namel ?>" class="button">
+				<img src="<?= \omSocialLogin\omSocialLogin::uri('/img/' . $namel . '.png') ?>"
+				     alt="<?= $namel ?>"/>
+				<span><? _e('Connect with', SL) ?> <?= $name ?></span>
+			</a>
+		<? } ?>
+
+	<? } ?>
+
+</div>

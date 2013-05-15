@@ -24,4 +24,13 @@ class Google extends BaseProvider {
 		$this->options->setByArray($_POST, 'google_%s');
 		$this->options->saveOptions();
 	}
+
+	/**
+	 * Return hexa value of brand color
+	 *
+	 * @return string
+	 */
+	public function getColor() {
+		return '#db4a39';
+	}
 }

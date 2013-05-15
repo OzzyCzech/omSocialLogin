@@ -38,7 +38,30 @@ class UserMeta {
 			// TODO update also user mail, description, name etc.
 			// $isSocialAccount = get_user_meta($user_id, 'auth_social_created', true)
 		}
+	}
 
+
+	/**
+	 * Return user info
+	 *
+	 * @param string $user_id
+	 * @param string $provider
+	 * @return array
+	 */
+	public static function getSignature($user_id, $provider) {
+		return get_user_meta($user_id, 'auth_' . $provider . '_signature', true);
+	}
+
+
+	/**
+	 * Return user info
+	 *
+	 * @param string $user_id
+	 * @param string $provider
+	 * @return array
+	 */
+	public static function getInfo($user_id, $provider) {
+		return get_user_meta($user_id, 'auth_' . $provider . '_info', true);
 	}
 
 

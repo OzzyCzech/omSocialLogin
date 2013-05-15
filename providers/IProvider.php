@@ -38,4 +38,12 @@ interface IProvider {
 	 */
 	public function setOptionsData();
 
+	/**
+	 * Return hexa value of brand color
+	 *
+	 * @see http://brandcolors.net/
+	 * @return string
+	 */
+	public function getColor();
+
 }

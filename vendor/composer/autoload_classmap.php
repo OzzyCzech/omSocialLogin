@@ -13,6 +13,7 @@ return array(
     'omSocialLogin\\Buttons' => $baseDir . '/libs/Buttons.php',
     'omSocialLogin\\Frontend' => $baseDir . '/libs/Frontend.php',
     'omSocialLogin\\LoginException' => $baseDir . '/libs/exceptions.php',
+    'omSocialLogin\\ProfileConnection' => $baseDir . '/libs/user/ProfileConnection.php',
     'omSocialLogin\\Query' => $baseDir . '/libs/Query.php',
     'omSocialLogin\\Response' => $baseDir . '/libs/Response.php',
     'omSocialLogin\\Settings' => $baseDir . '/libs/Settings.php',

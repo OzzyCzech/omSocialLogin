@@ -1,0 +1,132 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: omRealEstate\n"
+"POT-Creation-Date: 2013-05-15 11:07+0100\n"
+"PO-Revision-Date: 2013-05-15 11:14+0100\n"
+"Last-Translator: Roman Ožana <ozana@omdesign.cz>\n"
+"Language-Team:  <ozana@omdesign.cz>\n"
+"Language: cs_CZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: __;_e;_x\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../libs/Auth.php:53
+msgid "Social provider login error"
+msgstr "Chyba přihlášení přes poskytovatele"
+
+#: ../libs/Auth.php:65
+msgid "Ups! Missing data about response."
+msgstr "Ups! Chybějící údaje o odpověď."
+
+#: ../libs/Auth.php:82
+msgid "Invalid auth response "
+msgstr "Chybná odpověď autentifikace "
+
+#: ../libs/Response.php:41
+msgid "Empty or corrupted response from selected provider."
+msgstr "Vrátila se prázdná nebo poškozená odpověd od poskytovatele."
+
+#: ../libs/Settings.php:37
+msgid "Social login options save"
+msgstr "Social login nastavení bylo uloženo"
+
+#: ../libs/user/User.php:90
+#, php-format
+msgid ""
+"Cannot log you in. There is no account on this site connected to that %s "
+"user identity."
+msgstr ""
+"Přihlášení se nezdařilo. Na této stránce neexistuje žádný účet připojeno s"
+"% s identitou uživatele."
+
+#: ../libs/user/User.php:110
+#, php-format
+msgid ""
+"Account with email <strong>%s</strong> already exists, please try login "
+"again."
+msgstr ""
+"Účet s emailem <strong>%s</strong> již existuje, prosím zkuste se přihlásit "
+"znova."
+
+#: ../libs/user/UserColumns.php:17
+msgid "Social login"
+msgstr "Social Login"
+
+#: ../providers/Facebook/settings.phtml:11
+#: ../providers/Google/settings.phtml:10 ../providers/Twitter/settings.phtml:8
+msgid "Enable"
+msgstr "Povolit"
+
+#: ../providers/Facebook/settings.phtml:16
+#: ../providers/Google/settings.phtml:15
+#: ../providers/Twitter/settings.phtml:13
+msgid "enable"
+msgstr "povolit"
+
+#: ../providers/Facebook/settings.phtml:22
+msgid "App ID"
+msgstr "App ID"
+
+#: ../providers/Facebook/settings.phtml:33
+msgid "App Secret"
+msgstr "App Secret"
+
+#: ../providers/Facebook/settings.phtml:40
+#: ../providers/Google/settings.phtml:40
+#: ../providers/Twitter/settings.phtml:36
+msgid "Register here:"
+msgstr "Registorvat zde:"
+
+#: ../providers/Google/settings.phtml:21
+msgid "Client ID"
+msgstr "Client ID"
+
+#: ../providers/Google/settings.phtml:32
+msgid "Client secret"
+msgstr "Client secret"
+
+#: ../providers/Twitter/settings.phtml:19
+msgid "Key"
+msgstr "Key"
+
+#: ../providers/Twitter/settings.phtml:30
+msgid "Secret"
+msgstr "Secret"
+
+#: ../templates/loginButtons.phtml:3
+msgid "Login with:"
+msgstr "Přihlásit pomocí:"
+
+#: ../templates/settings.phtml:4
+msgid "You do not have sufficient permissions to manage options for this site."
+msgstr "Nemáte dostatečná oprávnění pro správu možnosti této stránky."
+
+#: ../templates/settings.phtml:9
+msgid "Social login settings"
+msgstr "Nastavení social login"
+
+#: ../templates/settings.phtml:13
+msgid "Common settings"
+msgstr "Společná nastavení"
+
+#: ../templates/settings.phtml:17
+msgid "Callback URL"
+msgstr "Callback URL"
+
+#: ../templates/settings.phtml:21
+msgid "Some services (e.g. Twitter,Google) require callback URL."
+msgstr "Některé služby (např. Twitter, Google) vyžadují callback URL."
+
+#: ../templates/user/ProfileConnection.phtml:1
+msgid "Connect your account"
+msgstr "Propojte svůj účet"
+
+#: ../templates/user/ProfileConnection.phtml:13
+msgid "Connect with"
+msgstr "Propojit s"
