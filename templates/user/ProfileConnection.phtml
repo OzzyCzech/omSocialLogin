@@ -1,46 +1,96 @@
-<h3><? _e('Connect your account', SL) ?></h3>
+<h3><? _e('Social connection', SL) ?></h3>
 
 <style type="text/css">
 
-	.socialConnect .connected {
-		display: inline-block;
-		line-height: 42px;
-		height: 42px;
-		border: 1px solid #ddd;
-	}
-
-	.socialConnect .button {
+	.not-connected .button {
 		height: auto;
+	}
+
+	.not-connected img {
+		vertical-align: middle;
+	}
+
+	.connected ul {
+		border: 1px solid #ddd;
+		padding: 1em;
+		float: left;
+		-moz-border-radius: 2px;
+		-ms-border-radius: 2px;
+		border-radius: 2px;
+		background: #fefefe;
+	}
+
+	.connected th {
 		line-height: 42px;
 	}
 
-	.socialConnect img {
+	.connected .action {
+		border-top: 1px solid #ddd;
+		padding-top: 1em;
+		text-align: center;
+	}
+
+	.connected img {
 		vertical-align: middle;
 	}
 </style>
 
-<div class="socialConnect">
-	<? foreach ($this->providers as $name => $provider) {
-		/** @var \omSocialLogin\providers\IProvider $provider */
-		if (!$provider->isEnable()) continue; // skip disabled providers
-		$namel = strtolower($name)
-		?>
+<table class="form-table not-connected">
+	<tr>
+		<th><? _e('Connect your account with', SL) ?></th>
+		<td>
+			<? foreach ($this->providers as $name => $provider) {
+				/** @var \omSocialLogin\providers\IProvider $provider */
+				if (!$provider->isEnable()) continue; // skip disabled providers
+				if (isset($connected[$name])) continue; // skip connected providers
+				?>
+				<a href="/auth/<?= strtolower($name) ?>?connect=1" class="button">
+					<img src="<?= \omSocialLogin\omSocialLogin::uri('/img/' . strtolower($name) . '.png') ?>"
+					     alt="<?= $provider->getName() ?>" width="16" height="16"/>
+					<span><? _e('Connect with', SL) ?> <?= $name ?></span>
+				</a>
+			<? } ?>
+		</td>
+	</tr>
+</table>
 
-		<? if (isset($connected[$name])) { ?>
-			<? dump(\omSocialLogin\UserMeta::getInfo($user->ID, $name))?>
-			<span class="connected">
+<? if ($connected) { ?>
 
-			<img src="<?= \omSocialLogin\omSocialLogin::uri('/img/' . $namel . '.png') ?>"
-			     alt="<?= $namel ?>"/>
-				</span>
-		<? } else { ?>
-			<a href="/auth/<?= $namel ?>" class="button">
-				<img src="<?= \omSocialLogin\omSocialLogin::uri('/img/' . $namel . '.png') ?>"
-				     alt="<?= $namel ?>"/>
-				<span><? _e('Connect with', SL) ?> <?= $name ?></span>
-			</a>
+	<table class="form-table connected">
+		<? foreach ($connected as $name => $connect) { ?>
+			<tr>
+				<th>
+					<img src="<?= \omSocialLogin\omSocialLogin::uri('/img/' . strtolower($name) . '.png') ?>"
+					     alt="<?= $name ?>" width="16" height="16"/>
+					<span><?= $name ?></span>
+				</th>
+				<td>
+					<? $info = \omSocialLogin\UserMeta::getInfo($user->ID, $name); ?>
+					<ul>
+						<?
+						if (isset($info['image'])) {
+							echo sprintf(
+								'<li style="text-align: center"><img src = "%s" width = "50" height = "50" alt = "" /></li>',
+								$info['image']
+							);
+						}
+
+						if (isset($info['name'])) {
+							echo sprintf('<li><strong>%s</strong>: %s</li> ', __('Name', SL), $info['name']);
+						}
+						if (isset($info['nickname'])) {
+							echo sprintf('<li><strong>%s</strong>: %s</li> ', __('Nickname', SL), $info['nickname']);
+						}
+						if (isset($info['email'])) {
+							echo sprintf('<li><a href="mailto:%s">%s</a></li> ', $info['email'], $info['email']);
+						}
+
+						?>
+						<li class="action"><a href="profile.php?disconnect=<?= $name ?>" class="button"><? _e('Remove', SL) ?></a></li>
+					</ul>
+				</td>
+			</tr>
 		<? } ?>
+	</table>
 
-	<? } ?>
-
-</div>
+<? } ?>

@@ -21,23 +21,6 @@ class User {
 		$this->response = $response;
 	}
 
-
-	/**
-	 * Get WP_User by UID and provider
-	 *
-	 * @param $provider
-	 * @param $uid
-	 * @return bool|false|\WP_User
-	 */
-	public static function getUserByProviderAndUid($provider, $uid) {
-		$uid_key = UserMeta::key('auth', $provider, 'uid');
-		if ($user = UserMeta::getUser($uid_key, $uid)) {
-			return $user;
-		}
-
-		return false;
-	}
-
 	/**
 	 * Get WP_User by email
 	 *
@@ -62,28 +45,35 @@ class User {
 	 */
 	public function login($create = true) {
 
-		// 1. login user by Provider and UID
+		// 1. connect account if user is loged in
 
-		if ($user = $this->getUserByProviderAndUid($this->response->getProvider(), $this->response->getUserUid())) {
+		if (is_user_logged_in()) {
+			UserMeta::addResponseData(get_current_user_id(), $this->response); // save new response
+		}
+
+		// 2. login user by Provider and UID
+
+		if ($user = UserMeta::getUserByUid($this->response->getProvider(), $this->response->getUserUid())) {
 			UserMeta::addResponseData($user->ID, $this->response); // update reponse data
 			return $this->loginUser($user);
 		}
 
-		// 2. login user user by email
+		// 3. login user user by email
 
 		if ($user = $this->getUserByEmail($this->response->getUserEmail())) {
 			UserMeta::addResponseData($user->ID, $this->response); // save new response
 			return $this->loginUser($user);
 		}
 
-		// 3. create new user and login
+
+		// 4. create new user and login
 
 		if ($create && $user = $this->createUser()) {
 			UserMeta::addResponseData($user->ID, $this->response); // save new response
 			return $this->loginUser($user);
 		}
 
-		// 4. nobody found or create
+		// 5. nobody found or create
 
 		throw new LoginException(
 			sprintf(

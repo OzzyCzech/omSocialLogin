@@ -14,7 +14,7 @@ class UserMeta {
 	 */
 	public static function addResponseData($user_id, Response $response, $created = false) {
 		// save info
-		$key = UserMeta::key('auth', $response->getProvider(), null);
+		$key = 'auth_' . $response->getProvider() . '_';
 
 		// update connected social accounts
 		$connected = UserMeta::getConnectedProviders($user_id);
@@ -38,6 +38,19 @@ class UserMeta {
 			// TODO update also user mail, description, name etc.
 			// $isSocialAccount = get_user_meta($user_id, 'auth_social_created', true)
 		}
+	}
+
+	/**
+	 * Remove provider
+	 * @param $user_id
+	 * @param $provider
+	 */
+	public static function disconnect($user_id, $provider) {
+		// TODO dopsat
+	}
+
+	public static function getUid($user_id, $provider) {
+		return get_user_meta($user_id, 'auth_' . $provider . '_signature', true);
 	}
 
 
@@ -96,12 +109,23 @@ class UserMeta {
 		return get_user_meta($user_id, 'auth_created_by', true);
 	}
 
+
+	/**
+	 * Return Wordpress user by provider and UIDs
+	 *
+	 * @param string $provider
+	 * @return false|\WP_User
+	 */
+	public static function getUserByUid($provider, $uid) {
+		return self::getUser('auth_' . $provider . '_uid', $uid);
+	}
+
 	/**
 	 * Return user by metadata value
 	 *
 	 * @param $meta_key
 	 * @param $meta_value
-	 * @return \WP_User|false
+	 * @return false|\WP_User
 	 */
 	public static function getUser($meta_key, $meta_value) {
 		return reset(
@@ -126,6 +150,7 @@ class UserMeta {
 	}
 
 	public static function uidMetaKey($provider) {
+
 		return self::key('auth', $provider, 'uid');
 	}
 }

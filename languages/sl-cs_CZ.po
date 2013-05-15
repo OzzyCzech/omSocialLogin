@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: omRealEstate\n"
-"POT-Creation-Date: 2013-05-15 11:07+0100\n"
-"PO-Revision-Date: 2013-05-15 11:14+0100\n"
+"POT-Creation-Date: 2013-05-15 16:03+0100\n"
+"PO-Revision-Date: 2013-05-15 16:04+0100\n"
 "Last-Translator: Roman Ožana <ozana@omdesign.cz>\n"
 "Language-Team:  <ozana@omdesign.cz>\n"
 "Language: cs_CZ\n"
@@ -36,7 +36,7 @@ msgstr "Vrátila se prázdná nebo poškozená odpověd od poskytovatele."
 msgid "Social login options save"
 msgstr "Social login nastavení bylo uloženo"
 
-#: ../libs/user/User.php:90
+#: ../libs/user/User.php:73
 #, php-format
 msgid ""
 "Cannot log you in. There is no account on this site connected to that %s "
@@ -45,7 +45,7 @@ msgstr ""
 "Přihlášení se nezdařilo. Na této stránce neexistuje žádný účet připojeno s"
 "% s identitou uživatele."
 
-#: ../libs/user/User.php:110
+#: ../libs/user/User.php:93
 #, php-format
 msgid ""
 "Account with email <strong>%s</strong> already exists, please try login "
@@ -124,9 +124,25 @@ msgid "Some services (e.g. Twitter,Google) require callback URL."
 msgstr "Některé služby (např. Twitter, Google) vyžadují callback URL."
 
 #: ../templates/user/ProfileConnection.phtml:1
-msgid "Connect your account"
+msgid "Social connection"
+msgstr "Propojení se sociálními sítěmi"
+
+#: ../templates/user/ProfileConnection.phtml:39
+msgid "Connect your account with"
 msgstr "Propojte svůj účet"
 
-#: ../templates/user/ProfileConnection.phtml:13
+#: ../templates/user/ProfileConnection.phtml:49
 msgid "Connect with"
 msgstr "Propojit s"
+
+#: ../templates/user/ProfileConnection.phtml:78
+msgid "Name"
+msgstr "Jméno"
+
+#: ../templates/user/ProfileConnection.phtml:81
+msgid "Nickname"
+msgstr "Přezdívka"
+
+#: ../templates/user/ProfileConnection.phtml:88
+msgid "Remove"
+msgstr "Odebrat"
