@@ -86,7 +86,9 @@
 						}
 
 						?>
-						<li class="action"><a href="profile.php?disconnect=<?= $name ?>" class="button"><? _e('Remove', SL) ?></a></li>
+						<li class="action">
+							<button type="submit" name="disconnect" class="button" value="<?= esc_attr($name) ?>"><? _e('Remove', SL) ?></button>
+						</li>
 					</ul>
 				</td>
 			</tr>

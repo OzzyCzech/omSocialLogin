@@ -1,9 +1,17 @@
 <?php
 namespace omSocialLogin;
 /**
+ *
  * @author Roman Ozana <ozana@omdesign.cz>
  */
 class UserMeta {
+
+	const KEY_UID = 'auth_%s_uid';
+	const KEY_IMAGE = 'auth_%s_image';
+	const KEY_INFO = 'auth_%s_info';
+	const KEY_SIGNATURE = 'auth_%s_signature';
+	const KEY_CONNECTED = 'auth_connected'; // array of connected provider
+	const KEY_CREATED_BY = 'auth_created_by';
 
 	/**
 	 * Add all avaliable response data to user
@@ -13,44 +21,70 @@ class UserMeta {
 	 * @param bool $created
 	 */
 	public static function addResponseData($user_id, Response $response, $created = false) {
-		// save info
-		$key = 'auth_' . $response->getProvider() . '_';
 
 		// update connected social accounts
 		$connected = UserMeta::getConnectedProviders($user_id);
 		$connected[$response->getProvider()] = true;
-		update_user_meta($user_id, 'auth_connected', array($response->getProvider() => true));
+		update_user_meta($user_id, self::KEY_CONNECTED, (array)$connected);
 
 		// update others data
-		update_user_meta($user_id, $key . 'uid', $response->getUserUid());
-		update_user_meta($user_id, $key . 'image', $response->getUserImage());
-		update_user_meta($user_id, $key . 'info', $response->getInfo());
-		update_user_meta($user_id, $key . 'signature', $response->getSignature());
+
+		$meta = array(
+			sprintf(self::KEY_UID, $response->getProvider()) => $response->getUserUid(),
+			sprintf(self::KEY_IMAGE, $response->getProvider()) => $response->getUserImage(),
+			sprintf(self::KEY_INFO, $response->getProvider()) => $response->getInfo(),
+			sprintf(self::KEY_SIGNATURE, $response->getProvider()) => $response->getSignature(),
+		);
+
+		foreach ($meta as $key => $value) {
+			update_user_meta($user_id, $key, $value);
+		}
 
 		// Twitter can be save in default Wodpress meta
 		if ($response->getProvider() === 'Twitter') {
-			update_user_meta($user_id, 'twitter', preg_replace('/@/', '', $response->getUserNickname()));
+			update_user_meta($user_id, 'twitter', ltrim($response->getUserNickname(), '@'));
 		}
 
 		if ($created) {
-			update_user_meta($user_id, 'auth_created_by', $response->getProvider());
-		} else {
-			// TODO update also user mail, description, name etc.
-			// $isSocialAccount = get_user_meta($user_id, 'auth_social_created', true)
+			update_user_meta($user_id, self::KEY_CREATED_BY, $response->getProvider());
 		}
 	}
 
 	/**
-	 * Remove provider
-	 * @param $user_id
-	 * @param $provider
+	 * Remove provider from user
+	 *
+	 * @param string $user_id
+	 * @param string $provider
+	 * @return bool
 	 */
-	public static function disconnect($user_id, $provider) {
-		// TODO dopsat
+	public static function removeProvider($user_id, $provider) {
+		// user can't be disconnected if was created by social provider
+		if (get_user_meta($user_id, self::KEY_CREATED_BY, true)) return false;
+
+		// remove all data about social connected account
+		delete_user_meta($user_id, sprintf(self::KEY_UID, $provider));
+		delete_user_meta($user_id, sprintf(self::KEY_IMAGE, $provider));
+		delete_user_meta($user_id, sprintf(self::KEY_INFO, $provider));
+		delete_user_meta($user_id, sprintf(self::KEY_SIGNATURE, $provider));
+
+		// update connected social networks array
+		$connected = UserMeta::getConnectedProviders($user_id);
+		unset($connected[$provider]); // remove provider
+		update_user_meta($user_id, self::KEY_CONNECTED, (array)$connected);
+
+		return true;
 	}
 
+
+	/**
+	 * Return UID from social provider
+	 *
+	 * @param string $user_id
+	 * @param string $provider
+	 * @return mixed
+	 */
 	public static function getUid($user_id, $provider) {
-		return get_user_meta($user_id, 'auth_' . $provider . '_signature', true);
+		return get_user_meta($user_id, sprintf(self::KEY_UID, $provider), true);
 	}
 
 
@@ -62,7 +96,7 @@ class UserMeta {
 	 * @return array
 	 */
 	public static function getSignature($user_id, $provider) {
-		return get_user_meta($user_id, 'auth_' . $provider . '_signature', true);
+		return get_user_meta($user_id, sprintf(self::KEY_SIGNATURE, $provider), true);
 	}
 
 
@@ -74,7 +108,7 @@ class UserMeta {
 	 * @return array
 	 */
 	public static function getInfo($user_id, $provider) {
-		return get_user_meta($user_id, 'auth_' . $provider . '_info', true);
+		return get_user_meta($user_id, sprintf(self::KEY_INFO, $provider), true);
 	}
 
 
@@ -87,12 +121,18 @@ class UserMeta {
 	 */
 	public static function getImageUrl($user_id, $provider = null) {
 		if ($provider === null) $provider = UserMeta::getCreatorProviderName($user_id);
-		return get_user_meta($user_id, 'auth_' . $provider . '_image', true);
+		return get_user_meta($user_id, sprintf(self::KEY_IMAGE, $provider), true);
 	}
 
 
+	/**
+	 * Return currently connected providers
+	 *
+	 * @param $user_id
+	 * @return array
+	 */
 	public static function getConnectedProviders($user_id) {
-		if ($connected = get_user_meta($user_id, 'auth_connected', true)) {
+		if ($connected = get_user_meta($user_id, self::KEY_CONNECTED, true)) {
 			return (array)$connected;
 		} else {
 			return array();
@@ -106,18 +146,18 @@ class UserMeta {
 	 * @return mixed
 	 */
 	public static function getCreatorProviderName($user_id) {
-		return get_user_meta($user_id, 'auth_created_by', true);
+		return get_user_meta($user_id, self::KEY_CREATED_BY, true);
 	}
-
 
 	/**
 	 * Return Wordpress user by provider and UIDs
 	 *
 	 * @param string $provider
+	 * @param string $uid
 	 * @return false|\WP_User
 	 */
 	public static function getUserByUid($provider, $uid) {
-		return self::getUser('auth_' . $provider . '_uid', $uid);
+		return self::getUser(sprintf(self::KEY_UID, $provider), $uid);
 	}
 
 	/**
@@ -138,19 +178,5 @@ class UserMeta {
 				)
 			)
 		);
-	}
-
-	/**
-	 * Generate key from inputs
-	 *
-	 * @return string
-	 */
-	public static function key() {
-		return implode('_', func_get_args());
-	}
-
-	public static function uidMetaKey($provider) {
-
-		return self::key('auth', $provider, 'uid');
 	}
 }
