@@ -108,6 +108,7 @@ class UserMeta {
 		// 2. merge them with $user_id (delete users created by social network)
 
 		foreach ($users as $user) {
+			require_once(ABSPATH . 'wp-admin/includes/user.php');
 			/** @var \WP_User $user */
 			wp_delete_user($user->ID, $user_id);
 		}
