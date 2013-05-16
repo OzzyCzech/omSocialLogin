@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: omRealEstate\n"
-"POT-Creation-Date: 2013-05-16 15:52+0100\n"
-"PO-Revision-Date: 2013-05-16 15:53+0100\n"
+"POT-Creation-Date: 2013-05-16 16:20+0100\n"
+"PO-Revision-Date: 2013-05-16 16:20+0100\n"
 "Last-Translator: Roman Ožana <ozana@omdesign.cz>\n"
 "Language-Team:  <ozana@omdesign.cz>\n"
 "Language: cs_CZ\n"
@@ -131,27 +131,27 @@ msgstr "Některé služby (např. Twitter, Google) vyžadují callback URL."
 msgid "Social connection"
 msgstr "Propojení se sociálními sítěmi"
 
-#: ../templates/user/ProfileConnection.phtml:40
+#: ../templates/user/ProfileConnection.phtml:52
 msgid "Connect your account with"
 msgstr "Propojte svůj účet"
 
-#: ../templates/user/ProfileConnection.phtml:52
+#: ../templates/user/ProfileConnection.phtml:63
 msgid "Connect with"
 msgstr "Propojit s"
 
-#: ../templates/user/ProfileConnection.phtml:56
-msgid "You are fully connected, like octopus with all networks"
-msgstr "Jste propojen se všemi sítěmi, které podporujeme"
+#: ../templates/user/ProfileConnection.phtml:81
+msgid "Conected with"
+msgstr "Propojeno s"
 
-#: ../templates/user/ProfileConnection.phtml:83
+#: ../templates/user/ProfileConnection.phtml:102
 msgid "Name"
 msgstr "Jméno"
 
-#: ../templates/user/ProfileConnection.phtml:86
+#: ../templates/user/ProfileConnection.phtml:105
 msgid "Nickname"
 msgstr "Přezdívka"
 
-#: ../templates/user/ProfileConnection.phtml:97
+#: ../templates/user/ProfileConnection.phtml:116
 msgid "Remove connection"
 msgstr "Odebrat spojení"
 
@@ -162,6 +162,9 @@ msgstr "Účet vytvořil"
 #: ../templates/user/UserColumn.phtml:8
 msgid "Connected with"
 msgstr "Propojeno"
+
+#~ msgid "You are fully connected, like octopus with all networks"
+#~ msgstr "Jste propojen se všemi sítěmi, které podporujeme"
 
 #~ msgid "Social login"
 #~ msgstr "Social Login"

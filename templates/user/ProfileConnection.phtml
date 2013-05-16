@@ -12,12 +12,24 @@
 
 	.connected ul {
 		border: 1px solid #ddd;
-		padding: 1em;
 		float: left;
+		margin-right: 1em;
+		min-width: 220px;
 		-moz-border-radius: 2px;
 		-ms-border-radius: 2px;
 		border-radius: 2px;
 		background: #fefefe;
+	}
+
+	.connected ul .title {
+		border-bottom: 1px solid #ddd;
+		background: #eee;
+		margin-bottom: 5px;
+	}
+
+	.connected ul li {
+		padding: 4px 1em;
+		margin: 0;
 	}
 
 	.connected th {
@@ -25,9 +37,8 @@
 	}
 
 	.connected .action {
-		border-top: 1px solid #ddd;
-		padding-top: 1em;
 		text-align: center;
+		padding: 8px 0;
 	}
 
 	.connected img {
@@ -35,11 +46,12 @@
 	}
 </style>
 
+<? ob_start();
+$empty = true; ?>
 <table class="form-table not-connected">
 	<tr>
 		<th><? _e('Connect your account with', SL) ?></th>
 		<td>
-			<? $empty = true; ?>
 			<? foreach ($this->providers as $name => $provider) {
 				/** @var \omSocialLogin\providers\IProvider $provider */
 				if (!$provider->isEnable()) continue; // skip disabled providers
@@ -53,24 +65,32 @@
 				</a>
 			<? } ?>
 
-			<? if ($empty) { ?><p><? _e('You are fully connected, like octopus with all networks', SL) ?></p><? } ?>
 		</td>
 	</tr>
 </table>
+<?
+$not_connected = ob_get_contents();
+ob_clean();
+if (!$empty) echo $not_connected;
+?>
 
 <? if ($connected) { ?>
 
 	<table class="form-table connected">
-		<? foreach ($connected as $name => $connect) { ?>
-			<tr>
-				<th>
-					<img src="<?= \omSocialLogin\omSocialLogin::uri('/img/' . strtolower($name) . '.png') ?>"
-					     alt="<?= $name ?>" width="16" height="16"/>
-					<span><?= $name ?></span>
-				</th>
-				<td>
+		<tr>
+			<th>
+				<? _e('Conected with', SL) ?>
+			</th>
+
+			<td>
+				<? foreach ($connected as $name => $connect) { ?>
 					<? $info = \omSocialLogin\UserMeta::getInfo($user->ID, $name); ?>
 					<ul>
+						<li class="title">
+							<img src="<?= \omSocialLogin\omSocialLogin::uri('/img/' . strtolower($name) . '.png') ?>"
+							     alt="<?= $name ?>" width="16" height="16"/>
+							<span><?= $name ?></span>
+						</li>
 						<?
 						if (isset($info['image'])) {
 							echo sprintf(
@@ -98,11 +118,10 @@
 								</button>
 							</li>
 						<? } ?>
-
 					</ul>
-				</td>
-			</tr>
-		<? } ?>
+				<? } ?>
+			</td>
+		</tr>
 	</table>
 
 <? } ?>
