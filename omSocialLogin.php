@@ -42,6 +42,7 @@ class omSocialLogin {
 	 * Plugin activate
 	 */
 	public function activate() {
+		if (is_multisite()) wp_die(__('Not multisite ready :(', SL));
 		flush_rewrite_rules();
 	}
 
@@ -89,6 +90,10 @@ class omSocialLogin {
 		return plugin_basename(__FILE__);
 	}
 
+	/**
+	 * @param string $file
+	 * @return string
+	 */
 	public static function template($file) {
 		return __DIR__ . '/templates/' . $file;
 	}

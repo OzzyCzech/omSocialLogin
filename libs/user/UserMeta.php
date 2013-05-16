@@ -75,6 +75,44 @@ class UserMeta {
 		return true;
 	}
 
+	/**
+	 * Merge user account when come from
+	 *
+	 * @param $user_id
+	 * @param $provider
+	 * @param $uid
+	 */
+	public static function mergeUsers($user_id, $provider, $uid) {
+
+		// 1. get all existing users created by provider
+
+		$users = get_users(
+			array(
+				'meta_query' => array(
+					array(
+						'key' => sprintf(self::KEY_UID, $provider),
+						'value' => $uid,
+						'compare' => '='
+					),
+					array(
+						'key' => self::KEY_CREATED_BY,
+						'value' => $provider,
+						'compare' => '='
+					),
+				),
+				'exclude' => array($user_id), // exclude
+				'count_total' => false
+			)
+		);
+
+		// 2. merge them with $user_id (delete users created by social network)
+
+		foreach ($users as $user) {
+			/** @var \WP_User $user */
+			wp_delete_user($user->ID, $user_id);
+		}
+	}
+
 
 	/**
 	 * Return UID from social provider
@@ -157,26 +195,16 @@ class UserMeta {
 	 * @return false|\WP_User
 	 */
 	public static function getUserByUid($provider, $uid) {
-		return self::getUser(sprintf(self::KEY_UID, $provider), $uid);
-	}
-
-	/**
-	 * Return user by metadata value
-	 *
-	 * @param $meta_key
-	 * @param $meta_value
-	 * @return false|\WP_User
-	 */
-	public static function getUser($meta_key, $meta_value) {
 		return reset(
 			get_users(
 				array(
-					'meta_key' => $meta_key,
-					'meta_value' => $meta_value,
+					'meta_key' => sprintf(self::KEY_UID, $provider),
+					'meta_value' => $uid,
 					'number' => 1,
 					'count_total' => false
 				)
 			)
 		);
 	}
+
 }

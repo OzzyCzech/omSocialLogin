@@ -24,6 +24,9 @@ class ProfileConnection {
 	}
 
 
+	/**
+	 * @param string $user_id
+	 */
 	public function user_update($user_id) {
 		$connected = UserMeta::getConnectedProviders($user_id);
 
@@ -38,6 +41,7 @@ class ProfileConnection {
 	 */
 	public function user_profile($user) {
 		$connected = UserMeta::getConnectedProviders($user->ID);
+		$creatorProviderName = UserMeta::getCreatorProviderName($user->ID);
 		require omSocialLogin::template('user/ProfileConnection.phtml');
 	}
 

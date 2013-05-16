@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: omRealEstate\n"
-"POT-Creation-Date: 2013-05-15 16:03+0100\n"
-"PO-Revision-Date: 2013-05-15 16:04+0100\n"
+"POT-Creation-Date: 2013-05-16 15:52+0100\n"
+"PO-Revision-Date: 2013-05-16 15:53+0100\n"
 "Last-Translator: Roman Ožana <ozana@omdesign.cz>\n"
 "Language-Team:  <ozana@omdesign.cz>\n"
 "Language: cs_CZ\n"
@@ -15,6 +15,10 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
+
+#: ../omSocialLogin.php:45
+msgid "Not multisite ready :("
+msgstr "Není připraveno na multisite :("
 
 #: ../libs/Auth.php:53
 msgid "Social provider login error"
@@ -36,7 +40,7 @@ msgstr "Vrátila se prázdná nebo poškozená odpověd od poskytovatele."
 msgid "Social login options save"
 msgstr "Social login nastavení bylo uloženo"
 
-#: ../libs/user/User.php:73
+#: ../libs/user/User.php:85
 #, php-format
 msgid ""
 "Cannot log you in. There is no account on this site connected to that %s "
@@ -45,7 +49,7 @@ msgstr ""
 "Přihlášení se nezdařilo. Na této stránce neexistuje žádný účet připojeno s"
 "% s identitou uživatele."
 
-#: ../libs/user/User.php:93
+#: ../libs/user/User.php:105
 #, php-format
 msgid ""
 "Account with email <strong>%s</strong> already exists, please try login "
@@ -55,8 +59,8 @@ msgstr ""
 "znova."
 
 #: ../libs/user/UserColumns.php:17
-msgid "Social login"
-msgstr "Social Login"
+msgid "Connected"
+msgstr "Připojeno"
 
 #: ../providers/Facebook/settings.phtml:11
 #: ../providers/Google/settings.phtml:10 ../providers/Twitter/settings.phtml:8
@@ -127,22 +131,40 @@ msgstr "Některé služby (např. Twitter, Google) vyžadují callback URL."
 msgid "Social connection"
 msgstr "Propojení se sociálními sítěmi"
 
-#: ../templates/user/ProfileConnection.phtml:39
+#: ../templates/user/ProfileConnection.phtml:40
 msgid "Connect your account with"
 msgstr "Propojte svůj účet"
 
-#: ../templates/user/ProfileConnection.phtml:49
+#: ../templates/user/ProfileConnection.phtml:52
 msgid "Connect with"
 msgstr "Propojit s"
 
-#: ../templates/user/ProfileConnection.phtml:78
+#: ../templates/user/ProfileConnection.phtml:56
+msgid "You are fully connected, like octopus with all networks"
+msgstr "Jste propojen se všemi sítěmi, které podporujeme"
+
+#: ../templates/user/ProfileConnection.phtml:83
 msgid "Name"
 msgstr "Jméno"
 
-#: ../templates/user/ProfileConnection.phtml:81
+#: ../templates/user/ProfileConnection.phtml:86
 msgid "Nickname"
 msgstr "Přezdívka"
 
-#: ../templates/user/ProfileConnection.phtml:88
-msgid "Remove"
-msgstr "Odebrat"
+#: ../templates/user/ProfileConnection.phtml:97
+msgid "Remove connection"
+msgstr "Odebrat spojení"
+
+#: ../templates/user/UserColumn.phtml:4
+msgid "Account creator"
+msgstr "Účet vytvořil"
+
+#: ../templates/user/UserColumn.phtml:8
+msgid "Connected with"
+msgstr "Propojeno"
+
+#~ msgid "Social login"
+#~ msgstr "Social Login"
+
+#~ msgid "Remove"
+#~ msgstr "Odebrat"

@@ -14,7 +14,7 @@ class UserColumns {
 	}
 
 	public function manage_users_columns($columns) {
-		$columns['auth_login'] = __('Social login', SL);
+		$columns['auth_connect'] = __('Connected', SL);
 		return $columns;
 	}
 
@@ -26,14 +26,13 @@ class UserColumns {
 	 * @return null|string
 	 */
 	public function manage_users_custom_column($value, $name, $user_id) {
-		if ($name === 'auth_login') {
+		if ($name === 'auth_connect') {
 			ob_start();
 			require omSocialLogin::template('user/UserColumn.phtml');
 			$return = ob_get_contents();
 			ob_clean();
 			return $return;
 		}
-
 	}
 
 }

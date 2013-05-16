@@ -48,7 +48,12 @@ class User {
 		// 1. connect account if user is loged in
 
 		if (is_user_logged_in()) {
-			UserMeta::addResponseData(get_current_user_id(), $this->response); // save new response
+
+			// 1.1 merge duplicite users if exists and was created by social provider
+			UserMeta::mergeUsers(get_current_user_id(), $this->response->getProvider(), $this->response->getUserUid());
+
+			// 1.2 add response data to user current user
+			return UserMeta::addResponseData(get_current_user_id(), $this->response); // save new response
 		}
 
 		// 2. login user by Provider and UID
@@ -185,7 +190,10 @@ class User {
 	 * @param \WP_User $user
 	 * @return bool
 	 */
-	private function loginUser(\WP_User $user) {
+	private
+	function loginUser(
+		\WP_User $user
+	) {
 		wp_set_current_user($user->ID, $user->user_login);
 		wp_set_auth_cookie($user->ID);
 		do_action('wp_login', $user->user_login);

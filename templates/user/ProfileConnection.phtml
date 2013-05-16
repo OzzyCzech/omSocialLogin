@@ -39,10 +39,12 @@
 	<tr>
 		<th><? _e('Connect your account with', SL) ?></th>
 		<td>
+			<? $empty = true; ?>
 			<? foreach ($this->providers as $name => $provider) {
 				/** @var \omSocialLogin\providers\IProvider $provider */
 				if (!$provider->isEnable()) continue; // skip disabled providers
 				if (isset($connected[$name])) continue; // skip connected providers
+				$empty = false;
 				?>
 				<a href="/auth/<?= strtolower($name) ?>?connect=1" class="button">
 					<img src="<?= \omSocialLogin\omSocialLogin::uri('/img/' . strtolower($name) . '.png') ?>"
@@ -50,6 +52,8 @@
 					<span><? _e('Connect with', SL) ?> <?= $name ?></span>
 				</a>
 			<? } ?>
+
+			<? if ($empty) { ?><p><? _e('You are fully connected, like octopus with all networks', SL) ?></p><? } ?>
 		</td>
 	</tr>
 </table>
@@ -86,9 +90,15 @@
 						}
 
 						?>
-						<li class="action">
-							<button type="submit" name="disconnect" class="button" value="<?= esc_attr($name) ?>"><? _e('Remove', SL) ?></button>
-						</li>
+
+						<? if ($creatorProviderName !== $name) { ?>
+							<li class="action">
+								<button type="submit" name="disconnect" class="button" value="<?= esc_attr($name) ?>">
+									<? _e('Remove connection', SL) ?>
+								</button>
+							</li>
+						<? } ?>
+
 					</ul>
 				</td>
 			</tr>
