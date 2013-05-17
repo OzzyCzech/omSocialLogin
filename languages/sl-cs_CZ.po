@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: omRealEstate\n"
-"POT-Creation-Date: 2013-05-16 16:20+0100\n"
-"PO-Revision-Date: 2013-05-16 16:20+0100\n"
+"POT-Creation-Date: 2013-05-17 12:10+0100\n"
+"PO-Revision-Date: 2013-05-17 12:10+0100\n"
 "Last-Translator: Roman Ožana <ozana@omdesign.cz>\n"
 "Language-Team:  <ozana@omdesign.cz>\n"
 "Language: cs_CZ\n"
@@ -32,7 +32,11 @@ msgstr "Ups! Chybějící údaje o odpověď."
 msgid "Invalid auth response "
 msgstr "Chybná odpověď autentifikace "
 
-#: ../libs/Response.php:41
+#: ../libs/Response.php:27
+msgid "An unknown error occurred, please try again later."
+msgstr "Došlo k neznámé chybě, zkuste to prosím později."
+
+#: ../libs/Response.php:47
 msgid "Empty or corrupted response from selected provider."
 msgstr "Vrátila se prázdná nebo poškozená odpověd od poskytovatele."
 
@@ -131,27 +135,27 @@ msgstr "Některé služby (např. Twitter, Google) vyžadují callback URL."
 msgid "Social connection"
 msgstr "Propojení se sociálními sítěmi"
 
-#: ../templates/user/ProfileConnection.phtml:52
+#: ../templates/user/ProfileConnection.phtml:53
 msgid "Connect your account with"
 msgstr "Propojte svůj účet"
 
-#: ../templates/user/ProfileConnection.phtml:63
+#: ../templates/user/ProfileConnection.phtml:64
 msgid "Connect with"
 msgstr "Propojit s"
 
-#: ../templates/user/ProfileConnection.phtml:81
+#: ../templates/user/ProfileConnection.phtml:82
 msgid "Conected with"
 msgstr "Propojeno s"
 
-#: ../templates/user/ProfileConnection.phtml:102
+#: ../templates/user/ProfileConnection.phtml:103
 msgid "Name"
 msgstr "Jméno"
 
-#: ../templates/user/ProfileConnection.phtml:105
+#: ../templates/user/ProfileConnection.phtml:106
 msgid "Nickname"
 msgstr "Přezdívka"
 
-#: ../templates/user/ProfileConnection.phtml:116
+#: ../templates/user/ProfileConnection.phtml:117
 msgid "Remove connection"
 msgstr "Odebrat spojení"
 

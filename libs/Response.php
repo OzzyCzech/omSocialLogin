@@ -22,11 +22,17 @@ class Response {
 		// 1. check for errors
 
 		if (array_key_exists('error', $response)) {
-			$message = ($response['error']['message']) ? : $response['error']['raw'];
-			throw new LoginException(
-				$response['error']['provider'] . ': ' . (is_array($message) ? implode(' ', $message) : $message),
-				$response['error']['code']
-			);
+
+			// format error message
+			$message = __('An unknown error occurred, please try again later.', SL);
+			$message = isset($response['error']['message']) ? $response['error']['message'] : $message;
+			$message = is_array($message) ? implode(' ', $message) : $message;
+			$message = sprintf('%s : %s', $response['error']['provider'], $message);
+
+			// error code
+			$code = isset($response['error']['code']) ? (int)$response['error']['code'] : 0;
+
+			throw new LoginException($message, $code);
 		}
 
 		// 2. check for mandatory elements
