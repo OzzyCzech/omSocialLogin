@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: omRealEstate\n"
-"POT-Creation-Date: 2013-05-17 12:10+0100\n"
-"PO-Revision-Date: 2013-05-17 12:10+0100\n"
+"POT-Creation-Date: 2013-05-23 15:00+0100\n"
+"PO-Revision-Date: 2013-05-23 15:00+0100\n"
 "Last-Translator: Roman Ožana <ozana@omdesign.cz>\n"
 "Language-Team:  <ozana@omdesign.cz>\n"
 "Language: cs_CZ\n"
@@ -108,8 +108,8 @@ msgid "Secret"
 msgstr "Secret"
 
 #: ../templates/loginButtons.phtml:3
-msgid "Login with:"
-msgstr "Přihlásit pomocí:"
+msgid "Login"
+msgstr "Přihlásit se"
 
 #: ../templates/settings.phtml:4
 msgid "You do not have sufficient permissions to manage options for this site."

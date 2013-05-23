@@ -1,12 +1,15 @@
 <div class="omLoginButtons">
 	<div class="wrapper">
-		<h4><? _e('Login with:', SL) ?></h4>
+		<h4><? _e('Login', SL) ?></h4>
+		<?= apply_filters('social_login_with_before', null) ?>
 		<? foreach ($providers as $name => $provider) {
 			/** @var \omSocialLogin\providers\IProvider $provider */
 			if (!$provider->isEnable()) continue;
 			$namel = strtolower($name) ?>
-			<a href="/auth/<?= $namel ?>"><img src="<?= \omSocialLogin\omSocialLogin::uri('/img/' . $namel . '.png') ?>"
-			                                   alt="<?= $namel ?>"/><span class="screen-reader-text"><?= $name ?></span></a>
+			<a href="/auth/<?= $namel ?>" class="<?= $namel ?>"><img
+					src="<?= \omSocialLogin\omSocialLogin::uri('/img/' . $namel . '.png') ?>" width="32" height="32"
+					alt="<?= $namel ?>"/><span><?= $name ?></span></a>
 		<? } ?>
+		<?= apply_filters('social_login_with_after', null) ?>
 	</div>
 </div>
