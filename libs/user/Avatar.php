@@ -20,7 +20,7 @@ class Avatar {
 			$id = $id_or_email;
 		} elseif (is_string($id_or_email)) {
 			$u = get_user_by('email', $id_or_email);
-			$id = $u->id;
+			$id = $u->ID;
 		} elseif (is_object($id_or_email)) {
 			$id = $id_or_email->user_id;
 		}
