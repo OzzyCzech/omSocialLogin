@@ -110,7 +110,7 @@ register_deactivation_hook(__FILE__, array($omSocialLogin, 'deactivate'));
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-$providers = new Container('Facebook', 'Twitter', 'Github', 'Google');
+$providers = new Container('Facebook', 'Twitter', 'GitHub', 'Google');
 
 new Settings($providers); // plugin settings
 new Frontend($providers); // frontend functions

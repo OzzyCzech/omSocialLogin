@@ -4,7 +4,7 @@ namespace omSocialLogin\providers;
 /**
  * @author Roman Ozana <ozana@omdesign.cz>
  */
-class Github extends BaseProvider {
+class GitHub extends BaseProvider {
 
 	/**
 	 * Return setting HTML

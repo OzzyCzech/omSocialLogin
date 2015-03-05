@@ -6,8 +6,10 @@
 		height: auto;
 	}
 
-	.not-connected img {
+	.not-connected svg {
 		vertical-align: middle;
+		width: 16px;
+		height: 16px;
 	}
 
 	.connected ul {
@@ -41,8 +43,10 @@
 		padding: 8px 0;
 	}
 
-	.connected img {
+	.connected svg {
 		vertical-align: middle;
+		width: 16px;
+		height: 16px;
 	}
 </style>
 
@@ -59,8 +63,7 @@ $empty = true; ?>
 				$empty = false;
 				?>
 				<a href="/auth/<?= strtolower($name) ?>?connect=1" class="button">
-					<img src="<?= \omSocialLogin\omSocialLogin::uri('/img/' . strtolower($name) . '.png') ?>"
-					     alt="<?= $provider->getName() ?>" width="16" height="16"/>
+					<? include \omSocialLogin\omSocialLogin::dir('/img/' . strtolower($name) . '.svg') ?>
 					<span><? _e('Connect with', SL) ?> <?= $name ?></span>
 				</a>
 			<? } ?>
@@ -87,8 +90,7 @@ if (!$empty) echo $not_connected;
 					<? $info = \omSocialLogin\UserMeta::getInfo($user->ID, $name); ?>
 					<ul>
 						<li class="title">
-							<img src="<?= \omSocialLogin\omSocialLogin::uri('/img/' . strtolower($name) . '.png') ?>"
-							     alt="<?= $name ?>" width="16" height="16"/>
+							<? include \omSocialLogin\omSocialLogin::dir('/img/' . strtolower($name) . '.svg') ?>
 							<span><?= $name ?></span>
 						</li>
 						<?

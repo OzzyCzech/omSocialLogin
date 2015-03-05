@@ -21,22 +21,22 @@
 
 	<tr valign="top">
 		<th scope="row">
-			<label for="github_strategy_app_id"><?php _e('App ID', SL) ?></label>
+			<label for="github_strategy_client_id"><?php _e('Client ID', SL) ?></label>
 		</th>
 		<td>
-			<input name="github_strategy[app_id]" type="text" id="github_strategy_app_id"
-			       value="<?= esc_attr($this->options->getStrategy('app_id')) ?>"
+			<input name="github_strategy[client_id]" type="text" id="github_strategy_client_id"
+			       value="<?= esc_attr($this->options->getStrategy('client_id')) ?>"
 			       class="large-text"/>
 		</td>
 	</tr>
 
 	<tr valign="top">
 		<th scope="row">
-			<label for="github_strategy_app_secret"><?php _e('App Secret', SL) ?></label>
+			<label for="github_strategy_app_secret"><?php _e('Client secret', SL) ?></label>
 		</th>
 		<td>
-			<input name="github_strategy[app_secret]" type="text" id="github_strategy_app_secret"
-			       value="<?= esc_attr($this->options->getStrategy('app_secret')) ?>"
+			<input name="github_strategy[client_secret]" type="text" id="github_strategy_client_secret"
+			       value="<?= esc_attr($this->options->getStrategy('client_secret')) ?>"
 			       class="large-text"/>
 
 			<p class="description"><? _e('Register here:', SL)?> <a href="https://github.com/settings/applications/new" target="_blank">https://github.com/settings/applications/new</a>

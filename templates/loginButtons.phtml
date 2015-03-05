@@ -7,7 +7,7 @@
 			if (!$provider->isEnable()) continue;
 			$namel = strtolower($name) ?>
 			<a href="/auth/<?= $namel ?>" class="btn btn-login btn-lg <?= $namel ?>">
-				<? if (is_file($svg = __DIR__ . '/../img/' . $namel . '.svg')) include $svg ?>
+				<? include __DIR__ . '/../img/' . $namel . '.svg' ?>
 				<span><? _e('Login with ', SL) ?> <?= $name ?></span></a>
 		<? } ?>
 		<?= apply_filters('social_login_with_after', null) ?>

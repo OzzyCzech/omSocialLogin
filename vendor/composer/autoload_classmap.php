@@ -23,7 +23,7 @@ return array(
     'omSocialLogin\\providers\\BaseProvider' => $baseDir . '/providers/BaseProvider.php',
     'omSocialLogin\\providers\\Container' => $baseDir . '/providers/Container.php',
     'omSocialLogin\\providers\\Facebook' => $baseDir . '/providers/Facebook/Facebook.php',
-    'omSocialLogin\\providers\\Github' => $baseDir . '/providers/Github/Github.php',
+    'omSocialLogin\\providers\\GitHub' => $baseDir . '/providers/Github/GitHub.php',
     'omSocialLogin\\providers\\Google' => $baseDir . '/providers/Google/Google.php',
     'omSocialLogin\\providers\\IProvider' => $baseDir . '/providers/IProvider.php',
     'omSocialLogin\\providers\\Options' => $baseDir . '/providers/Options.php',
