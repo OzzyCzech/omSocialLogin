@@ -62,7 +62,7 @@ class Auth {
 	 * @throws LoginException
 	 */
 	private function processRequest() {
-		if (!isset($_SESSION['opauth'])) wp_die(__('Ups! Missing data about response.', 'osl'));
+		if (!isset($_SESSION['opauth'])) wp_die(__('Ups! Missing data about response.', SL));
 
 		// 1. getting response
 		$response = $_SESSION['opauth'];

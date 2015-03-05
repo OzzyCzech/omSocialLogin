@@ -6,9 +6,9 @@
 			/** @var \omSocialLogin\providers\IProvider $provider */
 			if (!$provider->isEnable()) continue;
 			$namel = strtolower($name) ?>
-			<a href="/auth/<?= $namel ?>" class="<?= $namel ?>"><img
-					src="<?= \omSocialLogin\omSocialLogin::uri('/img/' . $namel . '.png') ?>" width="32" height="32"
-					alt="<?= $namel ?>"/><span><?= $name ?></span></a>
+			<a href="/auth/<?= $namel ?>" class="btn btn-login btn-lg <?= $namel ?>">
+				<? if (is_file($svg = __DIR__ . '/../img/' . $namel . '.svg')) include $svg ?>
+				<span><? _e('Login with ', SL) ?> <?= $name ?></span></a>
 		<? } ?>
 		<?= apply_filters('social_login_with_after', null) ?>
 	</div>

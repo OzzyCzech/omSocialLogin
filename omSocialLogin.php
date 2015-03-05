@@ -75,10 +75,11 @@ class omSocialLogin {
 	}
 
 	/**
+	 * @param string $path
 	 * @return string
 	 */
-	public static function dir() {
-		return __DIR__;
+	public static function dir($path = '') {
+		return __DIR__ . $path;
 	}
 
 	/**
@@ -109,7 +110,7 @@ register_deactivation_hook(__FILE__, array($omSocialLogin, 'deactivate'));
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-$providers = new Container('Facebook', 'Twitter', 'Google');
+$providers = new Container('Facebook', 'Twitter', 'Github', 'Google');
 
 new Settings($providers); // plugin settings
 new Frontend($providers); // frontend functions

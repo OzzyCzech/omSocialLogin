@@ -1,7 +1,12 @@
 <? /** @var \omSocialLogin\providers\Twitter $this */ ?>
 <table class="form-table">
 	<tr>
-		<td colspan="2"><h3><img src="<?= \omSocialLogin\omSocialLogin::uri('/img/' . strtolower($this->getName()) . '.png') ?>" alt=""/> Twitter</h3></td>
+		<td colspan="2">
+			<h3>
+				<? include \omSocialLogin\omSocialLogin::dir('/img/' . strtolower($this->getName()) . '.svg') ?>
+				Twitter
+			</h3>
+		</td>
 	</tr>
 
 	<tr valign="top">
@@ -33,7 +38,9 @@
 			<input name="twitter_strategy[secret]" type="text" id="twitter_strategy_secret"
 			       value="<?= esc_attr($this->options->getStrategy('secret')) ?>"
 			       class="large-text"/>
-			<p class="description"><? _e('Register here:', SL)?> <a href=" https://dev.twitter.com/apps" target="_blank">https://dev.twitter.com/apps</a></p>
+
+			<p class="description"><? _e('Register here:', SL) ?> <a href=" https://dev.twitter.com/apps" target="_blank">https://dev.twitter.com/apps</a>
+			</p>
 		</td>
 	</tr>
 </table>

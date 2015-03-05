@@ -1,22 +1,23 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "1eb0cc001f37e3853b9841a6cb5e1895",
+    "hash": "3387db01736c32a5c38490167a74be29",
     "packages": [
         {
             "name": "om/wplugins",
-            "version": "v0.0.4",
+            "version": "0.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OzzyCzech/wplugins.git",
-                "reference": "v0.0.4"
+                "reference": "72df43e3123debd169f545779c5278684b466c9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OzzyCzech/wplugins/zipball/v0.0.4",
-                "reference": "v0.0.4",
+                "url": "https://api.github.com/repos/OzzyCzech/wplugins/zipball/72df43e3123debd169f545779c5278684b466c9a",
+                "reference": "72df43e3123debd169f545779c5278684b466c9a",
                 "shasum": ""
             },
             "require": {
@@ -37,13 +38,13 @@
             ],
             "authors": [
                 {
-                    "name": "Roman Ožana",
+                    "name": "Roman Ozana",
                     "email": "ozana@omdesign.cz",
                     "homepage": "http://www.omdesign.cz"
                 }
             ],
             "description": "Wordpress plugin commons",
-            "time": "2013-04-20 12:14:45"
+            "time": "2013-06-04 21:08:20"
         },
         {
             "name": "opauth/bitbucket",
@@ -317,16 +318,16 @@
         },
         {
             "name": "opauth/opauth",
-            "version": "0.4.3",
+            "version": "0.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opauth/opauth.git",
-                "reference": "0.4.3"
+                "reference": "436fb98c2374c9e8ae4d8adddf83214bee4d9c72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opauth/opauth/zipball/0.4.3",
-                "reference": "0.4.3",
+                "url": "https://api.github.com/repos/opauth/opauth/zipball/436fb98c2374c9e8ae4d8adddf83214bee4d9c72",
+                "reference": "436fb98c2374c9e8ae4d8adddf83214bee4d9c72",
                 "shasum": ""
             },
             "require": {
@@ -343,14 +344,14 @@
                     "lib/Opauth/"
                 ]
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
                     "name": "U-Zyn Chua",
-                    "email": "uzyn@zynesis.com",
+                    "email": "chua@uzyn.com",
                     "homepage": "http://uzyn.com"
                 }
             ],
@@ -366,7 +367,7 @@
                 "omniauth",
                 "twitter"
             ],
-            "time": "2013-01-10 07:10:44"
+            "time": "2013-05-10 09:01:52"
         },
         {
             "name": "opauth/openid",
@@ -457,20 +458,12 @@
             "time": "2013-06-12 07:50:11"
         }
     ],
-    "packages-dev": [
-
-    ],
-    "aliases": [
-
-    ],
+    "packages-dev": [],
+    "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
-    "platform": [
-
-    ],
-    "platform-dev": [
-
-    ]
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
 }

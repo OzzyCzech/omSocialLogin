@@ -1,10 +1,10 @@
-<? /** @var \omSocialLogin\providers\Facebook $this */ ?>
+<? /** @var \omSocialLogin\providers\Github $this */ ?>
 <table class="form-table">
 	<tr>
 		<td colspan="2">
 			<h3>
 				<? include \omSocialLogin\omSocialLogin::dir('/img/' . strtolower($this->getName()) . '.svg') ?>
-				Facebook
+				Github
 			</h3>
 		</td>
 	</tr>
@@ -12,8 +12,8 @@
 	<tr valign="top">
 		<th scope="row"><?php _e('Enable', SL) ?></th>
 		<td>
-			<label for="facebook_enable">
-				<input name="facebook_enable" type="checkbox" id="facebook_enable"
+			<label for="github_enable">
+				<input name="github_enable" type="checkbox" id="github_enable"
 				       value="1" <?php checked(true, $this->options->enable); ?> />
 				<?php _e('enable', SL) ?></label>
 		</td>
@@ -21,10 +21,10 @@
 
 	<tr valign="top">
 		<th scope="row">
-			<label for="facebook_strategy_app_id"><?php _e('App ID', SL) ?></label>
+			<label for="github_strategy_app_id"><?php _e('App ID', SL) ?></label>
 		</th>
 		<td>
-			<input name="facebook_strategy[app_id]" type="text" id="facebook_strategy_app_id"
+			<input name="github_strategy[app_id]" type="text" id="github_strategy_app_id"
 			       value="<?= esc_attr($this->options->getStrategy('app_id')) ?>"
 			       class="large-text"/>
 		</td>
@@ -32,15 +32,14 @@
 
 	<tr valign="top">
 		<th scope="row">
-			<label for="facebook_strategy_app_secret"><?php _e('App Secret', SL) ?></label>
+			<label for="github_strategy_app_secret"><?php _e('App Secret', SL) ?></label>
 		</th>
 		<td>
-			<input name="facebook_strategy[app_secret]" type="text" id="facebook_strategy_app_secret"
+			<input name="github_strategy[app_secret]" type="text" id="github_strategy_app_secret"
 			       value="<?= esc_attr($this->options->getStrategy('app_secret')) ?>"
 			       class="large-text"/>
 
-			<p class="description"><? _e('Register here:', SL) ?> <a href="https://developers.facebook.com/apps/"
-			                                                         target="_blank">https://developers.facebook.com/apps/</a>
+			<p class="description"><? _e('Register here:', SL)?> <a href="https://github.com/settings/applications/new" target="_blank">https://github.com/settings/applications/new</a>
 			</p>
 		</td>
 	</tr>

@@ -1,4 +1,8 @@
 {
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
     "hash": "98a1d5dd9857a7cbfcb29ae76952a7b1",
     "packages": [
 
@@ -10,12 +14,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/tester.git",
-                "reference": "0c1bdadbfe655772141f2a3ea39bbef4d267244e"
+                "reference": "dfd266ff2956638716fe338c1816e745baf249d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/tester/zipball/0c1bdadbfe655772141f2a3ea39bbef4d267244e",
-                "reference": "0c1bdadbfe655772141f2a3ea39bbef4d267244e",
+                "url": "https://api.github.com/repos/nette/tester/zipball/dfd266ff2956638716fe338c1816e745baf249d8",
+                "reference": "dfd266ff2956638716fe338c1816e745baf249d8",
                 "shasum": ""
             },
             "require": {
@@ -53,7 +57,7 @@
                 "testing",
                 "unit"
             ],
-            "time": "2013-04-17 20:43:19"
+            "time": "2013-05-17 14:57:08"
         }
     ],
     "aliases": [
