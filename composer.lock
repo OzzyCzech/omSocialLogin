@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3387db01736c32a5c38490167a74be29",
+    "hash": "3f75be5f80254aad8cb511de9611a3f7",
     "packages": [
         {
             "name": "om/wplugins",
-            "version": "0.0.6",
+            "version": "v0.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/OzzyCzech/wplugins.git",
-                "reference": "72df43e3123debd169f545779c5278684b466c9a"
+                "reference": "6b4cc628657b750eb2e28e43afbe73b2213f0f2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/OzzyCzech/wplugins/zipball/72df43e3123debd169f545779c5278684b466c9a",
-                "reference": "72df43e3123debd169f545779c5278684b466c9a",
+                "url": "https://api.github.com/repos/OzzyCzech/wplugins/zipball/6b4cc628657b750eb2e28e43afbe73b2213f0f2d",
+                "reference": "6b4cc628657b750eb2e28e43afbe73b2213f0f2d",
                 "shasum": ""
             },
             "require": {
@@ -38,13 +38,13 @@
             ],
             "authors": [
                 {
-                    "name": "Roman Ozana",
+                    "name": "Roman Ožana",
                     "email": "ozana@omdesign.cz",
                     "homepage": "http://www.omdesign.cz"
                 }
             ],
             "description": "Wordpress plugin commons",
-            "time": "2013-06-04 21:08:20"
+            "time": "2015-03-06 09:48:38"
         },
         {
             "name": "opauth/bitbucket",

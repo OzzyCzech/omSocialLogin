@@ -189,6 +189,20 @@ class UserMeta {
 	}
 
 	/**
+	 * Return all possible providers for user (origin + connected)
+	 *
+	 * @param $user_id
+	 * @return mixed
+	 */
+	public static function getAllProviders($user_id) {
+		$output = static::getConnectedProviders($user_id);
+		if ($origin = static::getCreatorProviderName($user_id)) {
+			$output[$origin] = true;
+		}
+		return $output;
+	}
+
+	/**
 	 * Return Wordpress user by provider and UIDs
 	 *
 	 * @param string $provider

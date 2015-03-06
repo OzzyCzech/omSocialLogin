@@ -1,9 +1,4 @@
-<div>
-	<? if ($creator = \omSocialLogin\UserMeta::getCreatorProviderName($user_id)) { ?>
-		<? include __DIR__ . '/../img/' . strtolower($name) . '.svg' ?>
-	<? } else { ?>
-		<? foreach (\omSocialLogin\UserMeta::getConnectedProviders($user_id) as $name => $meta) { ?>
-			<? include __DIR__ . '/../img/' . strtolower($name) . '.svg' ?>
-		<? } ?>
-	<? } ?>
-</div>
+<? foreach (\omSocialLogin\UserMeta::getAllProviders($user_id) as $name => $meta) { ?>
+	<img src="<?= \omSocialLogin\omSocialLogin::uri('/img/' . strtolower($name) . '.svg') ?>"
+	     alt="<?= esc_attr($name) ?>" style="width: 16px; height: 16px;vertical-align: middle"/>
+<? } ?>
