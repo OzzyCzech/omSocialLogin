@@ -29,9 +29,13 @@ class Avatar {
 
 		$img = UserMeta::getImageUrl($id); // getting default Avatar
 
-		if (!$img || $img == '') return $avatar;
-
-		return '<img src="' . $img . '" class="avatar avatar-wordpress-social-login avatar-' . $size . ' photo" height="' . $size . '" width="' . $size . '" />';
+		if (!$img || $img == '') {
+			return $avatar;
+		} else {
+			$img = esc_attr(preg_replace('#^https?:#', '', $img));
+			return '<img src="' . $img . '" class="avatar avatar-wordpress-social-login avatar-' . esc_attr(
+				$size
+			) . ' photo" height="' . esc_attr($size) . '" width="' . esc_attr($size) . '" />';
+		}
 	}
-
 }
