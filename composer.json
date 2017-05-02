@@ -1,11 +1,11 @@
 {
   "require": {
     "opauth/opauth": "0.4.4",
-    "opauth/facebook": "0.2.1",
+    "opauth/facebook": "0.3.1",
     "opauth/google": "0.2.2",
-    "opauth/twitter": "0.3.1",
+    "opauth/twitter": "0.3.2",
     "opauth/github": "0.1.0",
-    "opauth/linkedin": "0.1.2",
+    "opauth/linkedin": "0.2.0",
     "opauth/bitbucket": "0.2.1",
     "opauth/openid": "0.1.0",
     "opauth/live": "0.1.0",

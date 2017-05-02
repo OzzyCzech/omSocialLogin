@@ -1,10 +1,11 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3f75be5f80254aad8cb511de9611a3f7",
+    "hash": "4535ad29913a56f68986c01a9aff4c50",
+    "content-hash": "91686bb70d98dd84e3285fb7918ca064",
     "packages": [
         {
             "name": "om/wplugins",
@@ -52,12 +53,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fancyguy/opauth-bitbucket.git",
-                "reference": "0.2.1"
+                "reference": "14441659c43013b28d61f078a9f5d3ac2be4377d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fancyguy/opauth-bitbucket/zipball/0.2.1",
-                "reference": "0.2.1",
+                "url": "https://api.github.com/repos/fancyguy/opauth-bitbucket/zipball/14441659c43013b28d61f078a9f5d3ac2be4377d",
+                "reference": "14441659c43013b28d61f078a9f5d3ac2be4377d",
                 "shasum": ""
             },
             "require": {
@@ -92,16 +93,16 @@
         },
         {
             "name": "opauth/facebook",
-            "version": "0.2.1",
+            "version": "0.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opauth/facebook.git",
-                "reference": "0.2.1"
+                "reference": "ad1d3cb0f71363f55b005a6d06900b6a13d5a17c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opauth/facebook/zipball/0.2.1",
-                "reference": "0.2.1",
+                "url": "https://api.github.com/repos/opauth/facebook/zipball/ad1d3cb0f71363f55b005a6d06900b6a13d5a17c",
+                "reference": "ad1d3cb0f71363f55b005a6d06900b6a13d5a17c",
                 "shasum": ""
             },
             "require": {
@@ -114,14 +115,14 @@
                     "": "."
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
                     "name": "U-Zyn Chua",
-                    "email": "uzyn@zynesis.com",
+                    "email": "chua@uzyn.com",
                     "homepage": "http://uzyn.com"
                 }
             ],
@@ -132,7 +133,7 @@
                 "auth",
                 "facebook"
             ],
-            "time": "2012-09-21 04:47:35"
+            "time": "2017-04-03 14:31:11"
         },
         {
             "name": "opauth/github",
@@ -140,12 +141,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/opauth/github.git",
-                "reference": "0.1.0"
+                "reference": "9c4fe16dc6498b2c94f4c2a41ab93b0fe4b7fa73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opauth/github/zipball/0.1.0",
-                "reference": "0.1.0",
+                "url": "https://api.github.com/repos/opauth/github/zipball/9c4fe16dc6498b2c94f4c2a41ab93b0fe4b7fa73",
+                "reference": "9c4fe16dc6498b2c94f4c2a41ab93b0fe4b7fa73",
                 "shasum": ""
             },
             "require": {
@@ -184,12 +185,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/opauth/google.git",
-                "reference": "0.2.2"
+                "reference": "35df77684c14acb346a8c3753ae3809852d1a47e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opauth/google/zipball/0.2.2",
-                "reference": "0.2.2",
+                "url": "https://api.github.com/repos/opauth/google/zipball/35df77684c14acb346a8c3753ae3809852d1a47e",
+                "reference": "35df77684c14acb346a8c3753ae3809852d1a47e",
                 "shasum": ""
             },
             "require": {
@@ -224,16 +225,16 @@
         },
         {
             "name": "opauth/linkedin",
-            "version": "0.1.2",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opauth/linkedin.git",
-                "reference": "0.1.2"
+                "reference": "76df2b9520b02f4e87d1d0bd6ce64a375dcba03c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opauth/linkedin/zipball/0.1.2",
-                "reference": "0.1.2",
+                "url": "https://api.github.com/repos/opauth/linkedin/zipball/76df2b9520b02f4e87d1d0bd6ce64a375dcba03c",
+                "reference": "76df2b9520b02f4e87d1d0bd6ce64a375dcba03c",
                 "shasum": ""
             },
             "require": {
@@ -246,14 +247,14 @@
                     "": "."
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
                     "name": "U-Zyn Chua",
-                    "email": "uzyn@zynesis.com",
+                    "email": "chua@uzyn.com",
                     "homepage": "http://uzyn.com"
                 }
             ],
@@ -265,7 +266,7 @@
                 "linked in",
                 "linkedin"
             ],
-            "time": "2013-01-31 04:16:30"
+            "time": "2013-06-15 11:21:21"
         },
         {
             "name": "opauth/live",
@@ -273,12 +274,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/opauth/live.git",
-                "reference": "0.1.0"
+                "reference": "2a854d68cd5fbf10013afbf6008fff849f1f2d0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opauth/live/zipball/0.1.0",
-                "reference": "0.1.0",
+                "url": "https://api.github.com/repos/opauth/live/zipball/2a854d68cd5fbf10013afbf6008fff849f1f2d0b",
+                "reference": "2a854d68cd5fbf10013afbf6008fff849f1f2d0b",
                 "shasum": ""
             },
             "require": {
@@ -375,12 +376,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/opauth/openid.git",
-                "reference": "0.1.0"
+                "reference": "ebf166cddbaff78e740234189073ab6919e85eb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opauth/openid/zipball/0.1.0",
-                "reference": "0.1.0",
+                "url": "https://api.github.com/repos/opauth/openid/zipball/ebf166cddbaff78e740234189073ab6919e85eb7",
+                "reference": "ebf166cddbaff78e740234189073ab6919e85eb7",
                 "shasum": ""
             },
             "require": {
@@ -415,16 +416,16 @@
         },
         {
             "name": "opauth/twitter",
-            "version": "0.3.1",
+            "version": "0.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opauth/twitter.git",
-                "reference": "0.3.1"
+                "reference": "9c09fb3d714b8bf7b35ebc235346cf2feced69e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opauth/twitter/zipball/0.3.1",
-                "reference": "0.3.1",
+                "url": "https://api.github.com/repos/opauth/twitter/zipball/9c09fb3d714b8bf7b35ebc235346cf2feced69e3",
+                "reference": "9c09fb3d714b8bf7b35ebc235346cf2feced69e3",
                 "shasum": ""
             },
             "require": {
@@ -455,7 +456,7 @@
                 "auth",
                 "twitter"
             ],
-            "time": "2013-06-12 07:50:11"
+            "time": "2017-03-28 05:03:36"
         }
     ],
     "packages-dev": [],
