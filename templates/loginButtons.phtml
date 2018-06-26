@@ -6,7 +6,7 @@
 			/** @var \omSocialLogin\providers\IProvider $provider */
 			if (!$provider->isEnable()) continue;
 			$namel = strtolower($name) ?>
-			<a href="/auth/<?= $namel ?>" class="btn btn-login btn-lg <?= $namel ?>">
+			<a href="/auth/<?= $namel ?>" class="btn btn-default btn-login <?= $namel ?>">
 				<? include __DIR__ . '/../img/' . $namel . '.svg' ?>
 				<span><? _e('Login with ', SL) ?> <?= $name ?></span></a>
 		<? } ?>

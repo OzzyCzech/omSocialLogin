@@ -1,13 +1,22 @@
 # omSocialLogin
 
-Wordpress plugin for login with oAuth. Currently support:
+Wordpress plugin for login with **oAuth**.
+
+Currently supports:
 
 - Facebook
 - Twitter
-- Google Plus
-- Github
+- Google
+- GitHub
 
+
+# 
 # How to install
 
-[Download zip file](https://bitbucket.org/OzzyCzech/omsociallogin/get/master.zip) and unzip to `wp-content/plugins/omSocialLogin`. 
-Then run `composer install` inside `wp-content/plugins/omSocialLogin`.
+1. [Download ZIP file](https://github.com/OzzyCzech/omSocialLogin/archive/master.zip)
+2. Unzip to `wp-content/plugins/omSocialLogin`
+3. `cd wp-content/plugins/omSocialLogin && composer install`
+
+## Credentials
+
+- http://www.opauth.org/

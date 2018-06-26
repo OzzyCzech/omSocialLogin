@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    '' => array($vendorDir . '/opauth/google', $vendorDir . '/opauth/github', $vendorDir . '/opauth/openid', $vendorDir . '/opauth/bitbucket', $vendorDir . '/opauth/live', $vendorDir . '/opauth/facebook', $vendorDir . '/opauth/twitter', $vendorDir . '/opauth/linkedin'),
+    '' => array($vendorDir . '/opauth/facebook', $vendorDir . '/opauth/github', $vendorDir . '/opauth/google', $vendorDir . '/opauth/twitter'),
 );

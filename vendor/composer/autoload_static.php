@@ -4,17 +4,13 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitb4a5cca466f779772dc8dc30a42f57c1
+class ComposerStaticInit43ed2dfff262b4e2f9c73f682fc323c0
 {
     public static $fallbackDirsPsr0 = array (
-        0 => __DIR__ . '/..' . '/opauth/google',
+        0 => __DIR__ . '/..' . '/opauth/facebook',
         1 => __DIR__ . '/..' . '/opauth/github',
-        2 => __DIR__ . '/..' . '/opauth/openid',
-        3 => __DIR__ . '/..' . '/opauth/bitbucket',
-        4 => __DIR__ . '/..' . '/opauth/live',
-        5 => __DIR__ . '/..' . '/opauth/facebook',
-        6 => __DIR__ . '/..' . '/opauth/twitter',
-        7 => __DIR__ . '/..' . '/opauth/linkedin',
+        2 => __DIR__ . '/..' . '/opauth/google',
+        3 => __DIR__ . '/..' . '/opauth/twitter',
     );
 
     public static $classMap = array (
@@ -42,7 +38,6 @@ class ComposerStaticInitb4a5cca466f779772dc8dc30a42f57c1
         'omSocialLogin\\providers\\Twitter' => __DIR__ . '/../..' . '/providers/Twitter/Twitter.php',
         'om\\Exception' => __DIR__ . '/..' . '/om/wplugins/src/Exception.php',
         'om\\Globals' => __DIR__ . '/..' . '/om/wplugins/src/Globals.php',
-        'om\\Model' => __DIR__ . '/..' . '/om/wplugins/src/Model.php',
         'om\\Options' => __DIR__ . '/..' . '/om/wplugins/src/Options.php',
         'om\\View' => __DIR__ . '/..' . '/om/wplugins/src/View.php',
     );
@@ -50,8 +45,8 @@ class ComposerStaticInitb4a5cca466f779772dc8dc30a42f57c1
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->fallbackDirsPsr0 = ComposerStaticInitb4a5cca466f779772dc8dc30a42f57c1::$fallbackDirsPsr0;
-            $loader->classMap = ComposerStaticInitb4a5cca466f779772dc8dc30a42f57c1::$classMap;
+            $loader->fallbackDirsPsr0 = ComposerStaticInit43ed2dfff262b4e2f9c73f682fc323c0::$fallbackDirsPsr0;
+            $loader->classMap = ComposerStaticInit43ed2dfff262b4e2f9c73f682fc323c0::$classMap;
 
         }, null, ClassLoader::class);
     }

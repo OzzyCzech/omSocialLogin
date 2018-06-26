@@ -38,4 +38,5 @@ class Avatar {
 			) . ' photo" height="' . esc_attr($size) . '" width="' . esc_attr($size) . '" />';
 		}
 	}
+
 }

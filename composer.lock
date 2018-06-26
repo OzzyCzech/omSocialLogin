@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4535ad29913a56f68986c01a9aff4c50",
-    "content-hash": "91686bb70d98dd84e3285fb7918ca064",
+    "content-hash": "9cb4786ad836c370f3231b1ef81fd558",
     "packages": [
         {
             "name": "om/wplugins",
@@ -45,64 +44,20 @@
                 }
             ],
             "description": "Wordpress plugin commons",
-            "time": "2015-03-06 09:48:38"
-        },
-        {
-            "name": "opauth/bitbucket",
-            "version": "0.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fancyguy/opauth-bitbucket.git",
-                "reference": "14441659c43013b28d61f078a9f5d3ac2be4377d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fancyguy/opauth-bitbucket/zipball/14441659c43013b28d61f078a9f5d3ac2be4377d",
-                "reference": "14441659c43013b28d61f078a9f5d3ac2be4377d",
-                "shasum": ""
-            },
-            "require": {
-                "opauth/opauth": ">=0.2.0",
-                "php": ">=5.2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "": "."
-                }
-            },
-            "notification-url": "http://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "U-Zyn Chua",
-                    "email": "chua@uzyn.com",
-                    "homepage": "http://uzyn.com"
-                }
-            ],
-            "description": "Google strategy for Opauth",
-            "homepage": "http://opauth.org",
-            "keywords": [
-                "Authentication",
-                "auth",
-                "google"
-            ],
-            "time": "2012-09-11 04:35:04"
+            "time": "2015-03-06T09:48:38+00:00"
         },
         {
             "name": "opauth/facebook",
-            "version": "0.3.1",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opauth/facebook.git",
-                "reference": "ad1d3cb0f71363f55b005a6d06900b6a13d5a17c"
+                "reference": "50e9df822552973d27e2a9eabe9eff5954e738b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opauth/facebook/zipball/ad1d3cb0f71363f55b005a6d06900b6a13d5a17c",
-                "reference": "ad1d3cb0f71363f55b005a6d06900b6a13d5a17c",
+                "url": "https://api.github.com/repos/opauth/facebook/zipball/50e9df822552973d27e2a9eabe9eff5954e738b7",
+                "reference": "50e9df822552973d27e2a9eabe9eff5954e738b7",
                 "shasum": ""
             },
             "require": {
@@ -133,7 +88,7 @@
                 "auth",
                 "facebook"
             ],
-            "time": "2017-04-03 14:31:11"
+            "time": "2017-09-05T23:35:20+00:00"
         },
         {
             "name": "opauth/github",
@@ -159,14 +114,14 @@
                     "": "."
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
                     "name": "U-Zyn Chua",
-                    "email": "uzyn@zynesis.com",
+                    "email": "chua@uzyn.com",
                     "homepage": "http://uzyn.com"
                 }
             ],
@@ -177,7 +132,7 @@
                 "auth",
                 "github"
             ],
-            "time": "2012-07-23 06:13:59"
+            "time": "2012-07-23T06:13:59+00:00"
         },
         {
             "name": "opauth/google",
@@ -203,50 +158,6 @@
                     "": "."
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "U-Zyn Chua",
-                    "email": "uzyn@zynesis.com",
-                    "homepage": "http://uzyn.com"
-                }
-            ],
-            "description": "Google strategy for Opauth",
-            "homepage": "http://opauth.org",
-            "keywords": [
-                "Authentication",
-                "auth",
-                "google"
-            ],
-            "time": "2012-10-18 14:39:52"
-        },
-        {
-            "name": "opauth/linkedin",
-            "version": "0.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/opauth/linkedin.git",
-                "reference": "76df2b9520b02f4e87d1d0bd6ce64a375dcba03c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/opauth/linkedin/zipball/76df2b9520b02f4e87d1d0bd6ce64a375dcba03c",
-                "reference": "76df2b9520b02f4e87d1d0bd6ce64a375dcba03c",
-                "shasum": ""
-            },
-            "require": {
-                "opauth/opauth": ">=0.4.0",
-                "php": ">=5.2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "": "."
-                }
-            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -258,77 +169,27 @@
                     "homepage": "http://uzyn.com"
                 }
             ],
-            "description": "LinkedIn strategy for Opauth",
+            "description": "Google strategy for Opauth",
             "homepage": "http://opauth.org",
             "keywords": [
                 "Authentication",
                 "auth",
-                "linked in",
-                "linkedin"
+                "google"
             ],
-            "time": "2013-06-15 11:21:21"
-        },
-        {
-            "name": "opauth/live",
-            "version": "0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/opauth/live.git",
-                "reference": "2a854d68cd5fbf10013afbf6008fff849f1f2d0b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/opauth/live/zipball/2a854d68cd5fbf10013afbf6008fff849f1f2d0b",
-                "reference": "2a854d68cd5fbf10013afbf6008fff849f1f2d0b",
-                "shasum": ""
-            },
-            "require": {
-                "opauth/opauth": ">=0.2.0",
-                "php": ">=5.2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "": "."
-                }
-            },
-            "notification-url": "http://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "U-Zyn Chua",
-                    "email": "uzyn@zynesis.com",
-                    "homepage": "http://uzyn.com"
-                }
-            ],
-            "description": "Live Connect strategy for Opauth",
-            "homepage": "http://opauth.org",
-            "keywords": [
-                "Authentication",
-                "auth",
-                "live",
-                "live connect",
-                "microsoft",
-                "passport",
-                "windows",
-                "windows live"
-            ],
-            "time": "2012-08-08 16:45:08"
+            "time": "2012-10-18T14:39:52+00:00"
         },
         {
             "name": "opauth/opauth",
-            "version": "0.4.4",
+            "version": "0.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opauth/opauth.git",
-                "reference": "436fb98c2374c9e8ae4d8adddf83214bee4d9c72"
+                "reference": "3f979012d0bdf2d447bb02b97f7f7d9f482c77e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opauth/opauth/zipball/436fb98c2374c9e8ae4d8adddf83214bee4d9c72",
-                "reference": "436fb98c2374c9e8ae4d8adddf83214bee4d9c72",
+                "url": "https://api.github.com/repos/opauth/opauth/zipball/3f979012d0bdf2d447bb02b97f7f7d9f482c77e8",
+                "reference": "3f979012d0bdf2d447bb02b97f7f7d9f482c77e8",
                 "shasum": ""
             },
             "require": {
@@ -368,51 +229,7 @@
                 "omniauth",
                 "twitter"
             ],
-            "time": "2013-05-10 09:01:52"
-        },
-        {
-            "name": "opauth/openid",
-            "version": "0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/opauth/openid.git",
-                "reference": "ebf166cddbaff78e740234189073ab6919e85eb7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/opauth/openid/zipball/ebf166cddbaff78e740234189073ab6919e85eb7",
-                "reference": "ebf166cddbaff78e740234189073ab6919e85eb7",
-                "shasum": ""
-            },
-            "require": {
-                "opauth/opauth": ">=0.2.0",
-                "php": ">=5.2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "": "."
-                }
-            },
-            "notification-url": "http://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "U-Zyn Chua",
-                    "email": "uzyn@zynesis.com",
-                    "homepage": "http://uzyn.com"
-                }
-            ],
-            "description": "OpenID strategy for Opauth",
-            "homepage": "http://opauth.org",
-            "keywords": [
-                "Authentication",
-                "OpenId",
-                "auth"
-            ],
-            "time": "2012-06-08 07:00:03"
+            "time": "2018-02-25T03:18:21+00:00"
         },
         {
             "name": "opauth/twitter",
@@ -456,7 +273,7 @@
                 "auth",
                 "twitter"
             ],
-            "time": "2017-03-28 05:03:36"
+            "time": "2017-03-28T05:03:36+00:00"
         }
     ],
     "packages-dev": [],

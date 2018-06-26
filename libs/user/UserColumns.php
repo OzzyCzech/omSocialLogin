@@ -10,7 +10,7 @@ class UserColumns {
 
 	public function __construct() {
 		add_filter('manage_users_columns', array($this, 'manage_users_columns'));
-		add_action('manage_users_custom_column', array($this, 'manage_users_custom_column'), 10, 3);
+		add_action('manage_users_custom_column', array($this, 'manage_users_custom_column'), 9, 3);
 	}
 
 	public function manage_users_columns($columns) {

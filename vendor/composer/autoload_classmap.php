@@ -30,7 +30,6 @@ return array(
     'omSocialLogin\\providers\\Twitter' => $baseDir . '/providers/Twitter/Twitter.php',
     'om\\Exception' => $vendorDir . '/om/wplugins/src/Exception.php',
     'om\\Globals' => $vendorDir . '/om/wplugins/src/Globals.php',
-    'om\\Model' => $vendorDir . '/om/wplugins/src/Model.php',
     'om\\Options' => $vendorDir . '/om/wplugins/src/Options.php',
     'om\\View' => $vendorDir . '/om/wplugins/src/View.php',
 );
