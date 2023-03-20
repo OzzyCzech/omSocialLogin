@@ -1,15 +1,16 @@
 <?php
+
 namespace omSocialLogin;
 
 use omSocialLogin\providers\Container;
 
 /**
  * Plugin Name: omSocialLogin
- * Plugin URI: http://www.omdesign.cz
+ * Plugin URI: https://ozana.cz
  * Description: Social login
  * Version: 1.0
  * Author: Roman Ožana
- * Author URI: http://www.omdesign.cz/kontakt
+ * Author URI: https://ozana.cz
  */
 
 if (!class_exists('WP')) {
@@ -25,13 +26,12 @@ define('SL', 'sl'); // textdomain name
 /**
  * Main plugin class
  *
- * @author Roman Ožana <ozana@omdesign.cz>
+ * @author Roman Ožana <roman@ozana.cz>
  */
 class omSocialLogin {
 
-
 	public function __construct() {
-		add_action('init', array($this, 'init'));
+		add_action('init', [$this, 'init']);
 	}
 
 	public function init() {
@@ -105,8 +105,8 @@ class omSocialLogin {
 
 $omSocialLogin = new omSocialLogin();
 
-register_activation_hook(__FILE__, array($omSocialLogin, 'activate'));
-register_deactivation_hook(__FILE__, array($omSocialLogin, 'deactivate'));
+register_activation_hook(__FILE__, [$omSocialLogin, 'activate']);
+register_deactivation_hook(__FILE__, [$omSocialLogin, 'deactivate']);
 
 // ---------------------------------------------------------------------------------------------------------------------
 

@@ -1,15 +1,16 @@
 <?php
+
 namespace omSocialLogin;
 
 use omSocialLogin\providers\Container;
 
 /**
- * @author Roman Ozana <ozana@omdesign.cz>
+ * @author Roman Ozana <roman@ozana.cz>
  */
 class Auth {
 
 	/** @var array */
-	public $config = array(
+	public $config = [
 		'path' => '/auth/',
 		'debug' => false,
 		'callback_url' => '{path}/process/',
@@ -17,8 +18,8 @@ class Auth {
 		'security_salt' => AUTH_SALT,
 		'security_iteration' => 300,
 		'security_timeout' => '5 minutes',
-		'Strategy' => array(),
-	);
+		'Strategy' => [],
+	];
 
 	/** @var Container */
 	public $providers;
@@ -31,7 +32,7 @@ class Auth {
 	 */
 	public function __construct(Container $providers) {
 		$this->providers = $providers;
-		add_action('parse_request', array($this, 'parseRequest'));
+		add_action('parse_request', [$this, 'parseRequest']);
 	}
 
 	/**

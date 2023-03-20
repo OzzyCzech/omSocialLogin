@@ -1,4 +1,5 @@
 <?php
+
 namespace omSocialLogin\providers;
 
 use omSocialLogin\Exception;
@@ -8,12 +9,12 @@ use omSocialLogin\Exception;
  * @method void getOptionsForm()
  * @method void setOptionsData()
  *
- * @author Roman Ozana <ozana@omdesign.cz>
+ * @author Roman Ozana <roman@ozana.cz>
  */
 class Container implements \ArrayAccess, \Iterator {
 
 	/** @var array */
-	protected $providers = array();
+	protected $providers = [];
 	/** @var string */
 	protected $selected;
 
@@ -42,10 +43,10 @@ class Container implements \ArrayAccess, \Iterator {
 			throw new \Exception('Uknown method "' . $method . '" called.');
 		}
 
-		$response = array();
+		$response = [];
 		foreach ($this->providers as $name => $provider) {
 			/** @var IProvider $provider */
-			$response[$name] = call_user_func_array(array($provider, $method), $arguments);
+			$response[$name] = call_user_func_array([$provider, $method], $arguments);
 		}
 
 		return $response;

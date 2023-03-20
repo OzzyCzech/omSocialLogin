@@ -1,10 +1,11 @@
 <?php
+
 namespace omSocialLogin;
 
 use omSocialLogin\providers\Container;
 
 /**
- * @author Roman Ozana <ozana@omdesign.cz>
+ * @author Roman Ozana <roman@ozana.cz>
  */
 class Settings {
 
@@ -16,7 +17,7 @@ class Settings {
 	 */
 	public function __construct(Container $providers) {
 		$this->providers = $providers;
-		add_action('admin_menu', array($this, 'admin_menu'));
+		add_action('admin_menu', [$this, 'admin_menu']);
 	}
 
 	/**
@@ -24,7 +25,7 @@ class Settings {
 	 */
 	public function admin_menu() {
 		add_options_page(
-			'Social Login', 'Social Login', 'manage_options', omSocialLogin::file(), array($this, 'settings_page')
+			'Social Login', 'Social Login', 'manage_options', omSocialLogin::file(), [$this, 'settings_page']
 		);
 	}
 
@@ -40,6 +41,5 @@ class Settings {
 		$action = 'options-general.php?page=' . omSocialLogin::name();
 		require __DIR__ . '/../templates/settings.phtml'; // render settings html
 	}
-
 
 }

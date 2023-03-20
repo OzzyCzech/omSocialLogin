@@ -1,10 +1,13 @@
 <?php
+
 namespace omSocialLogin\providers;
+
 /**
  * @see https://github.com/uzyn/opauth/wiki/Auth-response
- * @author Roman Ozana <ozana@omdesign.cz>
+ * @author Roman Ozana <roman@ozana.cz>
  */
 interface IProvider {
+
 	/**
 	 * @return mixed
 	 */

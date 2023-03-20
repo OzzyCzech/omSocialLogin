@@ -1,8 +1,9 @@
 <?php
+
 namespace omSocialLogin\providers;
 
 /**
- * @author Roman Ozana <ozana@omdesign.cz>
+ * @author Roman Ozana <roman@ozana.cz>
  */
 abstract class BaseProvider implements IProvider {
 
@@ -14,23 +15,6 @@ abstract class BaseProvider implements IProvider {
 	}
 
 	/**
-	 * Getting strategy from options
-	 *
-	 * @return array
-	 */
-	public function getStrategy() {
-		return (array)$this->options->strategy;
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function isEnable() {
-		return (bool)$this->options->enable;
-	}
-
-
-	/**
 	 * Return name of provider
 	 *
 	 * @return string
@@ -38,6 +22,22 @@ abstract class BaseProvider implements IProvider {
 	public function getName() {
 		$class = explode('\\', get_class($this));
 		return end($class);
+	}
+
+	/**
+	 * Getting strategy from options
+	 *
+	 * @return array
+	 */
+	public function getStrategy() {
+		return (array) $this->options->strategy;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function isEnable() {
+		return (bool) $this->options->enable;
 	}
 
 }

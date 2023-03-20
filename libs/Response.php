@@ -1,9 +1,10 @@
 <?php
+
 namespace omSocialLogin;
 
 /**
  * @see https://github.com/uzyn/opauth/wiki/Auth-response
- * @author Roman Ozana <ozana@omdesign.cz>
+ * @author Roman Ozana <roman@ozana.cz>
  */
 class Response {
 
@@ -11,11 +12,32 @@ class Response {
 	public $response = null;
 
 	/**
+	 * Factory
+	 *
+	 * @param array $array
+	 * @return Response
+	 */
+	public static function fromArray(array $array = null) {
+		$response = new self;
+		$response->setResponse($array);
+		return $response;
+	}
+
+	/**
+	 * Return response
+	 *
+	 * @return array|null
+	 */
+	public function getResponse() {
+		return $this->response;
+	}
+
+	/**
 	 * Set response and check format of input array
 	 *
 	 * @param array $response
-	 * @throws LoginException
 	 * @return mixed|void
+	 * @throws LoginException
 	 */
 	public function setResponse(array $response = null) {
 
@@ -30,7 +52,7 @@ class Response {
 			$message = sprintf('%s : %s', $response['error']['provider'], $message);
 
 			// error code
-			$code = isset($response['error']['code']) ? (int)$response['error']['code'] : 0;
+			$code = isset($response['error']['code']) ? (int) $response['error']['code'] : 0;
 
 			throw new LoginException($message, $code);
 		}
@@ -50,28 +72,6 @@ class Response {
 		// 3. set response
 
 		$this->response = $response;
-	}
-
-	/**
-	 * Return response
-	 *
-	 * @return array|null
-	 */
-	public function getResponse() {
-		return $this->response;
-	}
-
-
-	/**
-	 * Factory
-	 *
-	 * @param array $array
-	 * @return Response
-	 */
-	public static function fromArray(array $array = null) {
-		$response = new self;
-		$response->setResponse($array);
-		return $response;
 	}
 
 	/**
@@ -133,7 +133,6 @@ class Response {
 		return isset($this->response['timestamp']) ? $this->response['timestamp'] : null;
 	}
 
-
 	/**
 	 * Alias for getName() function
 	 *
@@ -149,7 +148,7 @@ class Response {
 	 * @return array
 	 */
 	public function getInfo() {
-		return isset($this->response['auth']['info']) ? (array)$this->response['auth']['info'] : array();
+		return isset($this->response['auth']['info']) ? (array) $this->response['auth']['info'] : [];
 	}
 
 	/**
@@ -216,7 +215,7 @@ class Response {
 	 * @return string
 	 */
 	public function getUserUrls() {
-		return isset($this->response['auth']['info']['urls']) ? (array)$this->response['auth']['info']['urls'] : array();
+		return isset($this->response['auth']['info']['urls']) ? (array) $this->response['auth']['info']['urls'] : [];
 	}
 
 	/**
@@ -235,7 +234,7 @@ class Response {
 	 * @return mixed
 	 */
 	public function getCredentials() {
-		return isset($this->response['auth']['credentials']) ? (array)$this->response['auth']['credentials'] : array();
+		return isset($this->response['auth']['credentials']) ? (array) $this->response['auth']['credentials'] : [];
 	}
 
 	/**
@@ -244,7 +243,7 @@ class Response {
 	 * @return array
 	 */
 	public function getAuth() {
-		return isset($this->response['auth']) ? (array)$this->response['auth'] : array();
+		return isset($this->response['auth']) ? (array) $this->response['auth'] : [];
 	}
 
 	/**
@@ -256,7 +255,7 @@ class Response {
 	 * @return array
 	 */
 	public function getAuthRaw() {
-		return isset($this->response['auth']['raw']) ? (array)$this->response['auth']['raw'] : array();
+		return isset($this->response['auth']['raw']) ? (array) $this->response['auth']['raw'] : [];
 	}
 
 }

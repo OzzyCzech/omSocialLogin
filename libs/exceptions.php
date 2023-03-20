@@ -1,8 +1,10 @@
 <?php
+
 namespace omSocialLogin;
+
 /**
  *
- * @author Roman Ožana <ozana@omdesign.cz>
+ * @author Roman Ožana <roman@ozana.cz>
  */
 class LoginException extends \Exception {
 

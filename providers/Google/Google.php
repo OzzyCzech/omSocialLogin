@@ -1,8 +1,9 @@
 <?php
+
 namespace omSocialLogin\providers;
 
 /**
- * @author Roman Ožana <ozana@omdesign.cz>
+ * @author Roman Ožana <roman@ozana.cz>
  */
 class Google extends BaseProvider {
 

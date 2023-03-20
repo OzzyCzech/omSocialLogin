@@ -1,13 +1,15 @@
 <?php
+
 namespace omSocialLogin;
+
 /**
- * @author Roman Ozana <ozana@omdesign.cz>
+ * @author Roman Ozana <roman@ozana.cz>
  */
 class Query {
 
 	public function __construct() {
-		add_action('init', array($this, 'addRewriteRules'));
-		add_action('query_vars', array($this, 'addCustomQueryVars'));
+		add_action('init', [$this, 'addRewriteRules']);
+		add_action('query_vars', [$this, 'addCustomQueryVars']);
 	}
 
 	public function addRewriteRules() {

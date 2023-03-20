@@ -1,10 +1,11 @@
 <?php
+
 namespace omSocialLogin;
 
 use Mockery\Exception;
 
 /**
- * @author Roman Ozana <ozana@omdesign.cz>
+ * @author Roman Ozana <roman@ozana.cz>
  */
 class User {
 
@@ -20,21 +21,6 @@ class User {
 	public function __construct(Response $response) {
 		$this->response = $response;
 	}
-
-	/**
-	 * Get WP_User by email
-	 *
-	 * @param $email
-	 * @return mixed
-	 */
-	public static function getUserByEmail($email) {
-		if (is_email($email)) {
-			return get_user_by('email', $email);
-		}
-
-		return false;
-	}
-
 
 	/**
 	 * Login user or create new one if not exists
@@ -70,7 +56,6 @@ class User {
 			return $this->loginUser($user);
 		}
 
-
 		// 4. create new user and login
 
 		if ($create && $user = $this->createUser()) {
@@ -88,12 +73,41 @@ class User {
 		);
 	}
 
+	/**
+	 * Auto-login Wordpress user
+	 *
+	 * @param \WP_User $user
+	 * @return bool
+	 */
+	private
+	function loginUser(
+		\WP_User $user
+	) {
+		wp_set_current_user($user->ID, $user->user_login);
+		wp_set_auth_cookie($user->ID);
+		do_action('wp_login', $user->user_login);
+		return true;
+	}
+
+	/**
+	 * Get WP_User by email
+	 *
+	 * @param $email
+	 * @return mixed
+	 */
+	public static function getUserByEmail($email) {
+		if (is_email($email)) {
+			return get_user_by('email', $email);
+		}
+
+		return false;
+	}
 
 	/**
 	 * Create new from response
 	 *
-	 * @throws LoginException
 	 * @return bool|false|\WP_User
+	 * @throws LoginException
 	 */
 	private function createUser() {
 
@@ -110,22 +124,21 @@ class User {
 
 		// 2. prepare new user data
 
-		$user_data = array(
+		$user_data = [
 			'ID' => null,
 			'user_pass' => wp_generate_password(12, false),
 			'user_login' => $this->getBestFreeUserLogin(),
 			'user_nicename' => $this->response->getUserName(),
 			'user_url' => reset($this->response->getUserUrls()),
 			'user_email' => strval($this->response->getUserEmail()),
-			'display_name' => ($this->response->getUserNickname() ? $this->response->getUserNickname(
-			) : $this->response->getUserName()),
+			'display_name' => ($this->response->getUserNickname() ? $this->response->getUserNickname() : $this->response->getUserName()),
 			'nickname' => strval($this->response->getUserNickname()),
 			'first_name' => strval($this->response->getUserFirstName()),
 			'last_name' => strval($this->response->getUserLastName()),
 			'description' => $this->response->getUserDescription(),
 			'rich_editing' => null, // true :)
-			'role' => get_option('default_role') // default role
-		);
+			'role' => get_option('default_role'), // default role
+		];
 
 		// 3. inser user to database
 
@@ -142,7 +155,6 @@ class User {
 		return false;
 	}
 
-
 	/**
 	 * Return free not existing username
 	 *
@@ -152,7 +164,7 @@ class User {
 
 		// 1. prepare possible usernames
 
-		$usernames = array(
+		$usernames = [
 			$this->response->getUserNickname(),
 			$name = preg_replace('/@/', '', $this->response->getUserName()),
 			sanitize_title($name),
@@ -160,7 +172,7 @@ class User {
 			sanitize_title(
 				$this->response->getUserName() . '-' . $this->response->getProvider() . '-' . $this->response->getUserUid()
 			),
-		);
+		];
 
 		$usernames = array_filter($usernames); // remove NULL or empry values
 
@@ -182,22 +194,6 @@ class User {
 		} while (username_exists($username));
 
 		return $username;
-	}
-
-	/**
-	 * Auto-login Wordpress user
-	 *
-	 * @param \WP_User $user
-	 * @return bool
-	 */
-	private
-	function loginUser(
-		\WP_User $user
-	) {
-		wp_set_current_user($user->ID, $user->user_login);
-		wp_set_auth_cookie($user->ID);
-		do_action('wp_login', $user->user_login);
-		return true;
 	}
 
 }

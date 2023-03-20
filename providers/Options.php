@@ -1,15 +1,18 @@
 <?php
+
 namespace omSocialLogin\providers;
+
 /**
  * @property bool $enable
  * @property bool $strategy
- * @author Roman Ozana <ozana@omdesign.cz>
+ * @author Roman Ozana <roman@ozana.cz>
  */
 class Options extends \om\Options {
-	protected $options = array(
+
+	protected $options = [
 		'enable' => true,
-		'strategy' => array()
-	);
+		'strategy' => [],
+	];
 
 	/**
 	 * Return strategy value

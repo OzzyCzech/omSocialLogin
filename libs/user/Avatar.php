@@ -1,15 +1,15 @@
 <?php
+
 namespace omSocialLogin;
+
 /**
- * @author Roman Ozana <ozana@omdesign.cz>
+ * @author Roman Ozana <roman@ozana.cz>
  */
 class Avatar {
 
-
 	public function __construct() {
-		add_filter('get_avatar', array($this, 'getSocialAvatar'), 999, 5);
+		add_filter('get_avatar', [$this, 'getSocialAvatar'], 999, 5);
 	}
-
 
 	public function getSocialAvatar($avatar = '', $id_or_email, $size = 96, $default = '', $alt = false) {
 		if (is_admin() && get_current_screen()->base === 'options-discussion') return $avatar;
@@ -34,8 +34,8 @@ class Avatar {
 		} else {
 			$img = esc_attr(preg_replace('#^https?:#', '', $img));
 			return '<img src="' . $img . '" class="avatar avatar-wordpress-social-login avatar-' . esc_attr(
-				$size
-			) . ' photo" height="' . esc_attr($size) . '" width="' . esc_attr($size) . '" />';
+					$size
+				) . ' photo" height="' . esc_attr($size) . '" width="' . esc_attr($size) . '" />';
 		}
 	}
 

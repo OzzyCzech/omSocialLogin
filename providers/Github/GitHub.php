@@ -1,8 +1,9 @@
 <?php
+
 namespace omSocialLogin\providers;
 
 /**
- * @author Roman Ozana <ozana@omdesign.cz>
+ * @author Roman Ozana <roman@ozana.cz>
  */
 class GitHub extends BaseProvider {
 

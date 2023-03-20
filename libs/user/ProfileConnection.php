@@ -1,10 +1,11 @@
 <?php
+
 namespace omSocialLogin;
 
 use omSocialLogin\providers\Container;
 
 /**
- * @author Roman Ožana <ozana@omdesign.cz>
+ * @author Roman Ožana <roman@ozana.cz>
  */
 class ProfileConnection {
 
@@ -16,13 +17,12 @@ class ProfileConnection {
 	 */
 	public function __construct(Container $providers) {
 		$this->providers = $providers;
-		add_action('show_user_profile', array($this, 'user_profile'));
-		add_action('edit_user_profile', array($this, 'user_profile'));
+		add_action('show_user_profile', [$this, 'user_profile']);
+		add_action('edit_user_profile', [$this, 'user_profile']);
 
-		add_action('personal_options_update', array($this, 'user_update'));
-		add_action('edit_user_profile_update', array($this, 'user_update'));
+		add_action('personal_options_update', [$this, 'user_update']);
+		add_action('edit_user_profile_update', [$this, 'user_update']);
 	}
-
 
 	/**
 	 * @param string $user_id

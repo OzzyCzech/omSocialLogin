@@ -1,8 +1,10 @@
 <?php
+
 namespace omSocialLogin;
+
 /**
  *
- * @author Roman Ozana <ozana@omdesign.cz>
+ * @author Roman Ozana <roman@ozana.cz>
  */
 class UserMeta {
 
@@ -25,16 +27,16 @@ class UserMeta {
 		// update connected social accounts
 		$connected = UserMeta::getConnectedProviders($user_id);
 		$connected[$response->getProvider()] = true;
-		update_user_meta($user_id, self::KEY_CONNECTED, (array)$connected);
+		update_user_meta($user_id, self::KEY_CONNECTED, (array) $connected);
 
 		// update others data
 
-		$meta = array(
+		$meta = [
 			sprintf(self::KEY_UID, $response->getProvider()) => $response->getUserUid(),
 			sprintf(self::KEY_IMAGE, $response->getProvider()) => $response->getUserImage(),
 			sprintf(self::KEY_INFO, $response->getProvider()) => $response->getInfo(),
 			sprintf(self::KEY_SIGNATURE, $response->getProvider()) => $response->getSignature(),
-		);
+		];
 
 		foreach ($meta as $key => $value) {
 			update_user_meta($user_id, $key, $value);
@@ -48,6 +50,42 @@ class UserMeta {
 		if ($created) {
 			update_user_meta($user_id, self::KEY_CREATED_BY, $response->getProvider());
 		}
+	}
+
+	/**
+	 * Return currently connected providers
+	 *
+	 * @param $user_id
+	 * @return array
+	 */
+	public static function getConnectedProviders($user_id) {
+		if ($connected = get_user_meta($user_id, self::KEY_CONNECTED, true)) {
+			return (array) $connected;
+		} else {
+			return [];
+		}
+	}
+
+	/**
+	 * Return user info
+	 *
+	 * @param string $user_id
+	 * @param string $provider
+	 * @return array
+	 */
+	public static function getInfo($user_id, $provider) {
+		return get_user_meta($user_id, sprintf(self::KEY_INFO, $provider), true);
+	}
+
+	/**
+	 * Return user info
+	 *
+	 * @param string $user_id
+	 * @param string $provider
+	 * @return array
+	 */
+	public static function getSignature($user_id, $provider) {
+		return get_user_meta($user_id, sprintf(self::KEY_SIGNATURE, $provider), true);
 	}
 
 	/**
@@ -70,7 +108,7 @@ class UserMeta {
 		// update connected social networks array
 		$connected = UserMeta::getConnectedProviders($user_id);
 		unset($connected[$provider]); // remove provider
-		update_user_meta($user_id, self::KEY_CONNECTED, (array)$connected);
+		update_user_meta($user_id, self::KEY_CONNECTED, (array) $connected);
 
 		return true;
 	}
@@ -87,22 +125,22 @@ class UserMeta {
 		// 1. get all existing users created by provider
 
 		$users = get_users(
-			array(
-				'meta_query' => array(
-					array(
+			[
+				'meta_query' => [
+					[
 						'key' => sprintf(self::KEY_UID, $provider),
 						'value' => $uid,
-						'compare' => '='
-					),
-					array(
+						'compare' => '=',
+					],
+					[
 						'key' => self::KEY_CREATED_BY,
 						'value' => $provider,
-						'compare' => '='
-					),
-				),
-				'exclude' => array($user_id), // exclude
-				'count_total' => false
-			)
+						'compare' => '=',
+					],
+				],
+				'exclude' => [$user_id], // exclude
+				'count_total' => false,
+			]
 		);
 
 		// 2. merge them with $user_id (delete users created by social network)
@@ -113,7 +151,6 @@ class UserMeta {
 			wp_delete_user($user->ID, $user_id);
 		}
 	}
-
 
 	/**
 	 * Return UID from social provider
@@ -126,31 +163,6 @@ class UserMeta {
 		return get_user_meta($user_id, sprintf(self::KEY_UID, $provider), true);
 	}
 
-
-	/**
-	 * Return user info
-	 *
-	 * @param string $user_id
-	 * @param string $provider
-	 * @return array
-	 */
-	public static function getSignature($user_id, $provider) {
-		return get_user_meta($user_id, sprintf(self::KEY_SIGNATURE, $provider), true);
-	}
-
-
-	/**
-	 * Return user info
-	 *
-	 * @param string $user_id
-	 * @param string $provider
-	 * @return array
-	 */
-	public static function getInfo($user_id, $provider) {
-		return get_user_meta($user_id, sprintf(self::KEY_INFO, $provider), true);
-	}
-
-
 	/**
 	 * Return user image by Provider
 	 *
@@ -161,21 +173,6 @@ class UserMeta {
 	public static function getImageUrl($user_id, $provider = null) {
 		if ($provider === null) $provider = UserMeta::getCreatorProviderName($user_id);
 		return get_user_meta($user_id, sprintf(self::KEY_IMAGE, $provider), true);
-	}
-
-
-	/**
-	 * Return currently connected providers
-	 *
-	 * @param $user_id
-	 * @return array
-	 */
-	public static function getConnectedProviders($user_id) {
-		if ($connected = get_user_meta($user_id, self::KEY_CONNECTED, true)) {
-			return (array)$connected;
-		} else {
-			return array();
-		}
 	}
 
 	/**
@@ -212,12 +209,12 @@ class UserMeta {
 	public static function getUserByUid($provider, $uid) {
 		return reset(
 			get_users(
-				array(
+				[
 					'meta_key' => sprintf(self::KEY_UID, $provider),
 					'meta_value' => $uid,
 					'number' => 1,
-					'count_total' => false
-				)
+					'count_total' => false,
+				]
 			)
 		);
 	}
